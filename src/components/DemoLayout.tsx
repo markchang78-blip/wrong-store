@@ -79,7 +79,7 @@ function Navbar() {
 
       {/* Fullscreen Menu — covers entire viewport including navbar */}
       {mobileOpen && (
-        <div className="bg-[#C63B38] text-white overflow-y-auto" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
+        <div className="bg-[#1a1a1a] text-white overflow-y-auto" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
           {/* Close button — top right */}
           <div className="flex justify-end px-5 pt-5 md:px-8 md:pt-8">
             <button onClick={() => setMobileOpen(false)} aria-label="Close" className="text-white p-1">
