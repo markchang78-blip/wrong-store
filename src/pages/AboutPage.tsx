@@ -59,7 +59,7 @@ export default function AboutPage() {
   const isVisible = (id: string) => visibleSections.has(id);
 
   return (
-    <div className="min-h-screen bg-[#F4F1E8]">
+    <div className="min-h-screen bg-brand-bg">
       {/* ====== 1. HERO TITLE SECTION ====== */}
       <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
         {/* Logo + Handbook — same row, flex layout */}

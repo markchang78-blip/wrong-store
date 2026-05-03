@@ -33,7 +33,7 @@ export default function CollectionsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F4F1E8]">
+    <div className="min-h-screen bg-brand-bg">
       {/* ====== Hero Section — Full bleed image, no frame ====== */}
       <section className="relative w-full h-[360px] md:h-[540px] lg:h-[660px] xl:h-[720px] 2xl:h-[780px] overflow-hidden">
         <div className="absolute inset-0">

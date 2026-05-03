@@ -101,7 +101,7 @@ export default function NewsroomPage() {
   const isVisible = (id: string) => visibleSections.has(id);
 
   return (
-    <div className="min-h-screen bg-[#F4F1E8]">
+    <div className="min-h-screen bg-brand-bg">
       {/* ====== HERO + FEATURED 统一容器 ====== */}
       <div className="flex flex-col py-4 md:py-8 gap-6 lg:gap-12">
         {/* HERO TITLE */}
