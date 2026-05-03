@@ -60,6 +60,28 @@ export default function TheUnlikelyEntertainmentPage() {
 
   return (
     <div className="min-h-screen bg-brand-bg">
+      {/* ====== HERO IMAGE ====== */}
+      <section className="relative w-full h-[360px] md:h-[480px] lg:h-[560px] xl:h-[620px] 2xl:h-[680px] overflow-hidden">
+        <img
+          src="/hero-unlikely-entertainment.png"
+          alt="The Unlikely Entertainment"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Arrows */}
+        <button
+          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform"
+          aria-label="Previous"
+        >
+          <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+        </button>
+        <button
+          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform"
+          aria-label="Next"
+        >
+          <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+        </button>
+      </section>
+
       {/* ====== 1. HERO TITLE SECTION ====== */}
       <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
         <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
