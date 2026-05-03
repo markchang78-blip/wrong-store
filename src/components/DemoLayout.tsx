@@ -11,6 +11,10 @@ import NewsroomPage from '../pages/NewsroomPage';
 import NewsArticlePage from '../pages/NewsArticlePage';
 import PetsForLifePage from '../pages/PetsForLifePage';
 import MastermindsPage from '../pages/MastermindsPage';
+import TheUnlikelyEntertainmentPage from '../pages/TheUnlikelyEntertainmentPage';
+import PetsDoRockPage from '../pages/PetsDoRockPage';
+import PartnersInCrimePage from '../pages/PartnersInCrimePage';
+import PetsRockWorldPage from '../pages/PetsRockWorldPage';
 
 function CountdownBanner() {
   const [timeLeft, setTimeLeft] = useState({ days: 1, hours: 20, minutes: 59, seconds: 33 });
@@ -43,11 +47,11 @@ function Navbar() {
   // isHome check removed — navbar now always sticky
 
   const menuLinks = [
-    { href: '#/world', label: 'The Unlikely Entertainment' },
-    { href: '#/collections', label: 'Pets Do Rock' },
-    { href: '#/masterminds', label: 'The Masterminds' },
-    { href: '#/home', label: 'Partners In Crime' },
-    { href: '#/street', label: 'Pets Rock World' },
+    { href: '#/the-unlikely-entertainment', label: 'The Unlikely Entertainment' },
+    { href: '#/pets-do-rock', label: 'Pets Do Rock' },
+    { href: '#/the-masterminds', label: 'The Masterminds' },
+    { href: '#/partners-in-crime', label: 'Partners In Crime' },
+    { href: '#/pets-rock-world', label: 'Pets Rock World' },
     { href: '#/pets-for-life', label: 'Pets For Life' },
     { href: '#/newsroom', label: 'Newsroom' },
   ];
@@ -143,10 +147,17 @@ function Footer() {
 export default function DemoLayout({ page }: { page: string }) {
   const renderPage = () => {
     switch (page) {
-      case 'news': return <ShopPage />;
-      case 'newsroom': return <NewsroomPage />;
-      case 'news-article': return <NewsArticlePage />;
+      // New canonical routes
+      case 'the-unlikely-entertainment': return <TheUnlikelyEntertainmentPage />;
+      case 'pets-do-rock': return <PetsDoRockPage />;
+      case 'the-masterminds': return <MastermindsPage />;
+      case 'partners-in-crime': return <PartnersInCrimePage />;
+      case 'pets-rock-world': return <PetsRockWorldPage />;
       case 'pets-for-life': return <PetsForLifePage />;
+      case 'newsroom': return <NewsroomPage />;
+      // Legacy routes (preserved)
+      case 'news': return <ShopPage />;
+      case 'news-article': return <NewsArticlePage />;
       case 'masterminds': return <MastermindsPage />;
       case 'collections': return <CollectionsPage />;
       case 'world': return <AboutPage />;
