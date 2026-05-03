@@ -61,7 +61,7 @@ export default function TheUnlikelyEntertainmentPage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       {/* ====== HERO IMAGE ====== */}
-      <section className="relative w-full h-[360px] md:h-[480px] lg:h-[560px] xl:h-[620px] 2xl:h-[680px] overflow-hidden">
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '2078/1474', maxHeight: '80vh' }}>
         <img
           src="/hero-unlikely-entertainment.png"
           alt="The Unlikely Entertainment"
