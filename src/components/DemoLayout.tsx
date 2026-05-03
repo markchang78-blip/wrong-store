@@ -61,7 +61,7 @@ function Navbar() {
       {/* Sticky Header — countdown + navbar, always on top */}
       <header className="sticky top-0 z-40">
         <CountdownBanner />
-        <nav className="h-[60px] flex items-center justify-between bg-black text-white" style={{ padding: '0 clamp(20px, 4vw, 80px)' }}>
+        <nav className="h-[60px] flex items-center justify-between bg-[#1a1a1a] text-white" style={{ padding: '0 clamp(20px, 4vw, 80px)' }}>
         {/* Hamburger — always visible, matches logo height */}
         <button className="flex items-center justify-center text-white p-0" onClick={() => setMobileOpen(true)} aria-label="Menu">
           <Menu className="w-9 h-9 md:w-[42px] md:h-[42px]" strokeWidth={3} />
