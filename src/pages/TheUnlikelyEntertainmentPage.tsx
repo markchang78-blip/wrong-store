@@ -59,7 +59,7 @@ export default function TheUnlikelyEntertainmentPage() {
   const isVisible = (id: string) => visibleSections.has(id);
 
   return (
-    <div className="min-h-screen bg-[#F4F1E8]">
+    <div className="min-h-screen" style={{ backgroundColor: '#E6E6E6' }}>
       {/* ====== 1. HERO TITLE SECTION ====== */}
       <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
         <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
