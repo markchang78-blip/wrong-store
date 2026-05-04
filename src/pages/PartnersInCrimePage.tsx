@@ -203,7 +203,7 @@ function ProductGrid() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* Right: large hero carousel 9:16 - mobile first */}
-        <div className="relative order-1 lg:order-2 h-full min-h-[400px] lg:min-h-0 overflow-hidden lg:-mr-5">
+        <div className="relative order-1 lg:order-2 h-full min-h-[400px] lg:min-h-0 overflow-hidden lg:-mr-[30px]">
           <a href="#/news" className="block w-full h-full">
             {picksHeroSlides.map((slide, i) => (
               <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
@@ -211,16 +211,23 @@ function ProductGrid() {
               </div>
             ))}
           </a>
-          {/* Arrows */}
-          <button onClick={() => setHeroCurrent(p => (p - 1 + picksHeroSlides.length) % picksHeroSlides.length)} className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+          {/* Arrows - desktop: positioned in the gap between columns */}
+          <button onClick={() => setHeroCurrent(p => (p - 1 + picksHeroSlides.length) % picksHeroSlides.length)} className="hidden lg:block absolute -left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
             <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
           </button>
-          <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+          <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="hidden lg:block absolute -right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+            <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+          </button>
+          {/* Arrows - mobile: inside the hero */}
+          <button onClick={() => setHeroCurrent(p => (p - 1 + picksHeroSlides.length) % picksHeroSlides.length)} className="lg:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+            <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+          </button>
+          <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="lg:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
             <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
           </button>
         </div>
         {/* Left: 4 products in 2x2 grid, each 4:5 */}
-        <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-5 mt-[30px]">
+        <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-[30px] mt-[30px]">
           {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
         </div>
       </div>
