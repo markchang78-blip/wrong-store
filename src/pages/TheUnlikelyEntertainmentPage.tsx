@@ -75,7 +75,7 @@ export default function TheUnlikelyEntertainmentPage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       {/* ====== HERO CAROUSEL ====== */}
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '2078/1474', maxHeight: '80vh' }}>
+      <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
         {heroSlides.map((slide, i) => (
           <img
             key={i}
