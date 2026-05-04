@@ -229,6 +229,15 @@ function ProductGrid() {
         {/* Left: 4 products in 2x2 grid, each 4:5 */}
         <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-[30px] mt-[30px]">
           {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
+          {/* Arrows - below the product grid */}
+          <div className="col-span-2 flex items-center justify-between mt-4">
+            <button onClick={() => setHeroCurrent(p => (p - 1 + picksHeroSlides.length) % picksHeroSlides.length)} className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+              <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+            </button>
+            <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+              <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
