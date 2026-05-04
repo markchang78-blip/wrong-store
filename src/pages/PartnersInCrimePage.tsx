@@ -196,73 +196,71 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: absolute positioned. Left/right pushed outward, cropped by overflow-hidden.
-         Invisible placeholder sets the correct section height. */}
+      {/* Desktop: absolute positioned. Left/right pushed outward, cropped by overflow-hidden. */}
       <div className="hidden md:block relative">
-        {/* Placeholder — same size as center image, invisible, sets height */}
+        {/* Placeholder — sets height */}
         <div className="invisible w-[30%] mx-auto" style={{ aspectRatio: '9/16' }} />
 
-        {/* Left — pushed left 6%, cropped by screen edge. Visible: 24% (80% of 30%) */}
+        {/* Left — pushed left 6%, visible 24% (80% of 30%) */}
         <div className="absolute top-0 opacity-85 overflow-hidden rounded-xl" style={{ left: '-6%', width: '30%' }}>
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — full 30% visible, centered */}
+        {/* Center — full 30% visible */}
         <div className="absolute top-0 z-10 overflow-hidden rounded-xl shadow-2xl" style={{ left: '35%', width: '30%' }}>
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — pushed right 6%, cropped by screen edge. Visible: 24% (80% of 30%) */}
+        {/* Right — pushed right 6%, visible 24% (80% of 30%) */}
         <div className="absolute top-0 opacity-85 overflow-hidden rounded-xl" style={{ right: '-6%', width: '30%' }}>
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
+
+        {/* Arrows in gaps */}
+        <button onClick={goPrev} className="absolute left-[29.5%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 hover:scale-110 transition-transform" aria-label="Previous">
+          <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+        </button>
+        <button onClick={goNext} className="absolute right-[29.5%] top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 hover:scale-110 transition-transform" aria-label="Next">
+          <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+        </button>
       </div>
 
-      {/* Arrows — placed in the 11% gap between images */}
-      <button onClick={goPrev} className="hidden md:block absolute left-[29.5%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 hover:scale-110 transition-transform" aria-label="Previous">
-        <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
-      </button>
-      <button onClick={goNext} className="hidden md:block absolute right-[29.5%] top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 hover:scale-110 transition-transform" aria-label="Next">
-        <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
-      </button>
-
-      {/* Mobile: same absolute logic, smaller widths */}
+      {/* Mobile: flex layout. Center 70%, sides 15% each. */}
       <div className="md:hidden relative">
-        {/* Placeholder */}
-        <div className="invisible w-[40%] mx-auto" style={{ aspectRatio: '9/16' }} />
-
-        {/* Left — pushed left, cropped */}
-        <div className="absolute top-0 opacity-85 overflow-hidden rounded-xl" style={{ left: '-10%', width: '40%' }}>
-          <div style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
+        <div className="flex items-start justify-center">
+          {/* Left — 15% visible */}
+          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
+            <div style={{ aspectRatio: '9/16' }}>
+              <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
-        </div>
 
-        {/* Center */}
-        <div className="absolute top-0 z-10 overflow-hidden rounded-xl shadow-xl" style={{ left: '32%', width: '40%' }}>
-          <div style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
+          {/* Center — 70% full */}
+          <div className="w-[70%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl mx-2">
+            <div style={{ aspectRatio: '9/16' }}>
+              <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
+            </div>
           </div>
-        </div>
 
-        {/* Right — pushed right, cropped */}
-        <div className="absolute top-0 opacity-85 overflow-hidden rounded-xl" style={{ right: '-10%', width: '40%' }}>
-          <div style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
+          {/* Right — 15% visible */}
+          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
+            <div style={{ aspectRatio: '9/16' }}>
+              <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
 
         {/* Mobile arrows */}
-        <button onClick={goPrev} className="absolute left-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        <button onClick={goPrev} className="absolute left-[15%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
           <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
         </button>
-        <button onClick={goNext} className="absolute right-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <button onClick={goNext} className="absolute right-[15%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
           <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
         </button>
       </div>
