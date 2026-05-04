@@ -269,7 +269,6 @@ function FullWidthBanner() {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h2 className="fw-anim opacity-0 text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">PARTNERS IN CRIME<br/>COLLECTION</h2>
         <p className="fw-anim opacity-0 text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight max-w-[480px] mt-6 mb-8">For those who never back down. Bold designs, fearless attitude, and a community that has your back.</p>
-        <a href="#/news" className="fw-anim opacity-0 inline-flex items-center gap-2 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
       </div>
     </section>
   );
