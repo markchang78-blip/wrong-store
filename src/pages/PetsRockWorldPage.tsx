@@ -228,14 +228,13 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
 
   return (
     <div ref={cardRef} className="group cursor-pointer opacity-0">
-      <div className="relative aspect-[5/6] bg-[#eeeeee] overflow-hidden mb-3 -mx-4 md:mx-0">
+      <div className="relative aspect-[3/2] bg-[#eeeeee] overflow-hidden mb-3 -mx-4 md:mx-0">
         <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           <button className="bg-white/90 text-black text-xs uppercase tracking-wider font-medium px-4 py-2 flex items-center gap-2"><Eye size={14} /> Quick View</button>
         </div>
       </div>
-      <h3 className="text-sm font-semibold text-black">{product.name}</h3>
-      <p className="text-sm text-brand-text-secondary mt-1">${product.price.toFixed(2)}</p>
+      <h3 className="text-lg md:text-xl font-black text-black uppercase tracking-tighter leading-none">{product.name}</h3>
     </div>
   );
 }
@@ -248,7 +247,7 @@ function ProductGrid() {
         <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Global Favorites</h2></div>
         <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 gap-4 md:gap-6">
         {products.map((p, i) => (<ProductCard key={p.id} product={p} index={i} />))}
       </div>
     </section>
