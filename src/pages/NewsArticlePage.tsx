@@ -1,26 +1,36 @@
 import { useState, useEffect, useRef } from 'react';
 
-// ====== Article Content ======
-const articleContent = [
+// ====== Article Content (Lead + Text + Images) ======
+const articleSections = [
   {
-    question: "What's the name of your MBA project and what is it?",
-    answer: "The Book of Reverie is an illustrated series that takes place in our world and also Reverie's magical realm. It features characters built around our IP—Reverie, Atlas, and Brillo. The ongoing story creates a bridge between street culture, real-world activations, and physical goods in art, design, fashion, and toys.",
+    lead: "What's the name of your MBA project, and what is it?",
+    text: "It's an art, design, and fashion-oriented house that bridges Web 2.0 and Web 3.0. It was brought to life by @Pausrr and is made for those who seek uniqueness.",
+    image: '/news-article-1.png',
   },
   {
-    question: "What pet character do you use for the license and when did you acquire it?",
-    answer: "Brillo is our mascot #001 and he became part of the story almost exactly 1 year ago. When we first launched, I knew it was something I wanted to be a part of and spent considerable time looking at designs before I was able to secure my favorite character.",
+    lead: "Which Ape do you use for the license, and when did you acquire it?",
+    text: "I'm using MAYC #14084, which I acquired at the end of February this year. It all started after an Uber ride with Grateful.eth, who convinced me to get into the Apes community. :-)",
+    image: '/news-article-2.png',
   },
   {
-    question: "Has the project been something you have been wanting to start prior? If so, how long and why did you think now was the right time to launch?",
-    answer: "The Book of Reverie first began in March of 2022 with Reverie as the first character, and she was later joined by Atlas and Brillo. When we first launched, I knew it was something I wanted to be a part of and spent a considerable amount of time developing the brand identity before bringing the characters to life.",
+    lead: "Has the project been something you have been wanting to start prior to MBA?",
+    text: "Yes. I studied clothing design and have been a UI designer for over 15 years, but I always wanted to create fashion. I made my first collection of scarves and sold them as NFTs in 2021. Since then, I've produced small editions of silk fashion items. However, joining the Ape community and getting the MBA license gave my work new meaning and impact. Creating custom scarves with luxury materials and unique designs became my key focus, and now I feel like I'm on the path to fulfilling my dream. I want to take it to the next level by introducing new products.",
+    image: '/news-article-3.png',
   },
   {
-    question: "How has the community helped your project and goals?",
-    answer: "Immediately after getting started, we were welcomed by incredible supporters who were striving to create their visions for the future. Too many names to name, but there have been so many amazing people in the community that have been supporting The Book of Reverie from the very beginning and made all the difference to our creative journey.",
+    lead: "How have MBA, the Apes, and the larger Web3 community helped your project and goals?",
+    text: "The biggest benefit has been how quickly the community accepted me and how things have progressed. Securing the MBA license was crucial for me, as it allowed me to become part of something bigger alongside other creative Apes and businesses. Access to other subcommunities that inspire and support me has been incredible. It's the best form of networking I've ever experienced, and seeing others tackle similar challenges is very motivating.",
+    image: '/news-article-4.png',
   },
   {
-    question: "What can people expect from your project in the future?",
-    answer: "So far this year, the Fourth Volume of The Book of Reverie has been released—it features over 20 illustrations, exclusive drops for community participants, the first Reverie pop-up shop in NYC, a worldwide clean-up event for Earth Day, a new manifesto, and a special limited edition jacket designed especially for our fans. There are always surprises and a bit of unexpected magic, so you never know what the rest of the year might hold!",
+    lead: "What can people expect from your project in 2024?",
+    text: "I just released a limited-edition silk scarf made especially for ApeFest, featuring a unique custom design inspired by Portuguese azulejo tiles. I'm also working on additional scarf designs that I hope to bring to ApeFest as well. My goal is to release new drops every two months. I'm planning to introduce completely new luxury products and am working on some secret collaborations that will be revealed soon. Over time, I intend to put all my art canvases on the blockchain, making them accessible to Web3 users. All of these products will be embedded with NFC chips by Wov Labs, providing proof of ownership.",
+    image: '/news-article-5.png',
+  },
+  {
+    lead: "How can Apes support you in 2024?",
+    text: "It's not just about sales; I want to meet as many Apes as possible, get to know each other on a personal level, and learn about what everyone else is building. By supporting each other, our community will feel more like a family, and we can learn and grow together. My goal is to host more art exhibitions and fashion shows in Europe and the U.S., helping to spread the word about the Apes beyond our immediate circle. That's why I created a large Ape mural on the rooftop of the Community Center in Neubad Luzern. I want to create art that all Apes can be a part of.",
+    image: null,
   },
 ];
 
@@ -110,20 +120,30 @@ export default function NewsArticlePage() {
           {/* Divider */}
           <div className="w-full h-[2px] bg-black mb-10" />
 
-          {/* Q&A Content */}
-          <div id="article" ref={setRef('article')} className="space-y-8">
-            {articleContent.map((item, i) => (
-              <div
-                key={i}
-                className={`transition-all duration-[800ms] ease-out ${isVisible('article') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                <h3 className="text-base md:text-lg font-bold text-black mb-3">
-                  {item.question}
+          {/* Article Content */}
+          <div id="article" ref={setRef('article')} className="space-y-10">
+            {articleSections.map((section, i) => (
+              <div key={i}>
+                {/* Lead / Heading */}
+                <h3 className="text-lg md:text-xl font-bold text-black mb-4 leading-tight">
+                  {section.lead}
                 </h3>
-                <p className="text-sm md:text-base text-black leading-relaxed">
-                  {item.answer}
+                
+                {/* Body Text */}
+                <p className="text-sm md:text-base text-black leading-relaxed mb-6">
+                  {section.text}
                 </p>
+                
+                {/* Inline Image */}
+                {section.image && (
+                  <div className="w-full -mx-4 md:mx-0 md:rounded-lg overflow-hidden">
+                    <img
+                      src={section.image}
+                      alt={section.lead}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
