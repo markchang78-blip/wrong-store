@@ -196,47 +196,46 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 3 images same size. Left/right shifted outward 20% so only 80% visible.
-         Arrows placed in the enlarged gap between images. */}
-      <div className="hidden md:flex items-start justify-center relative">
-        {/* Left — shifted left 20%, only 80% visible */}
-        <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl" style={{ transform: 'translateX(-20%)' }}>
-          <div style={{ aspectRatio: '9/16' }}>
+      {/* Desktop: 3 images, all actual 30% width.
+         Left/right wrapped in 24% container (80% visible), center fully visible 30%.
+         Arrows placed in the gap. */}
+      <div className="hidden md:flex items-start justify-center gap-3">
+        {/* Left — 24% visible wrapper, 30% image inside, left edge cropped */}
+        <div className="w-[24%] flex-shrink-0 overflow-hidden rounded-xl opacity-85">
+          <div className="w-[125%]" style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — not shifted */}
+        {/* Center — full 30% visible */}
         <div className="w-[30%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — shifted right 20%, only 80% visible */}
-        <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl" style={{ transform: 'translateX(20%)' }}>
-          <div style={{ aspectRatio: '9/16' }}>
+        {/* Right — 24% visible wrapper, 30% image inside, right edge cropped */}
+        <div className="w-[24%] flex-shrink-0 overflow-hidden rounded-xl opacity-85 flex justify-end">
+          <div className="w-[125%]" style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
-
-        {/* Left arrow — in the gap */}
-        <button onClick={goPrev} className="absolute left-[32%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
-          <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
-        </button>
-
-        {/* Right arrow — in the gap */}
-        <button onClick={goNext} className="absolute right-[32%] top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
-          <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
-        </button>
       </div>
 
-      {/* Mobile: 3 images same size */}
+      {/* Arrows in the gaps */}
+      <button onClick={goPrev} className="hidden md:flex absolute left-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+      </button>
+      <button onClick={goNext} className="hidden md:flex absolute right-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+      </button>
+
+      {/* Mobile: same logic */}
       <div className="md:hidden relative">
-        <div className="flex items-start justify-center">
-          {/* Left — shifted left 20% */}
-          <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl" style={{ transform: 'translateX(-20%)' }}>
-            <div style={{ aspectRatio: '9/16' }}>
+        <div className="flex items-start justify-center gap-2">
+          {/* Left */}
+          <div className="w-[24%] flex-shrink-0 overflow-hidden rounded-xl opacity-85">
+            <div className="w-[125%]" style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
@@ -246,19 +245,18 @@ function ShowUpNowCarousel() {
               <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
             </div>
           </div>
-          {/* Right — shifted right 20% */}
-          <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl" style={{ transform: 'translateX(20%)' }}>
-            <div style={{ aspectRatio: '9/16' }}>
+          {/* Right */}
+          <div className="w-[24%] flex-shrink-0 overflow-hidden rounded-xl opacity-85 flex justify-end">
+            <div className="w-[125%]" style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
-
         {/* Mobile arrows */}
-        <button onClick={goPrev} className="absolute left-[28%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        <button onClick={goPrev} className="absolute left-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
           <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
         </button>
-        <button onClick={goNext} className="absolute right-[28%] top-1/2 -translate-y-1/2 translate-x-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <button onClick={goNext} className="absolute right-[26%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
           <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
         </button>
       </div>
