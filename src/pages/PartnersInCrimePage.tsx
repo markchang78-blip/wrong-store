@@ -231,36 +231,38 @@ function ShowUpNowCarousel() {
         </button>
       </div>
 
-      {/* Mobile: flex layout. Center 70%, sides 15% each. */}
+      {/* Mobile: same absolute logic as desktop.
+         All 3 images are 70% width. Left/right pushed out, only 15% visible. */}
       <div className="md:hidden relative">
-        <div className="flex items-start justify-center">
-          {/* Left — 15% visible */}
-          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
-            <div style={{ aspectRatio: '9/16' }}>
-              <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
-            </div>
-          </div>
+        {/* Placeholder — 70% centered, sets height */}
+        <div className="invisible w-[70%] mx-auto" style={{ aspectRatio: '9/16' }} />
 
-          {/* Center — 70% full */}
-          <div className="w-[70%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl mx-2">
-            <div style={{ aspectRatio: '9/16' }}>
-              <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          {/* Right — 15% visible */}
-          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
-            <div style={{ aspectRatio: '9/16' }}>
-              <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
-            </div>
+        {/* Left — 70% width, pushed left 55%, visible: rightmost 15% */}
+        <div className="absolute top-0 opacity-60 overflow-hidden rounded-xl" style={{ left: '-55%', width: '70%' }}>
+          <div style={{ aspectRatio: '9/16' }}>
+            <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Mobile arrows */}
-        <button onClick={goPrev} className="absolute left-[15%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        {/* Center — 70% width, centered at 15%, full visible */}
+        <div className="absolute top-0 z-10 overflow-hidden rounded-xl shadow-xl" style={{ left: '15%', width: '70%' }}>
+          <div style={{ aspectRatio: '9/16' }}>
+            <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Right — 70% width, pushed right 55%, visible: leftmost 15% */}
+        <div className="absolute top-0 opacity-60 overflow-hidden rounded-xl" style={{ right: '-55%', width: '70%' }}>
+          <div style={{ aspectRatio: '9/16' }}>
+            <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Mobile arrows in the gaps */}
+        <button onClick={goPrev} className="absolute left-[12%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
           <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
         </button>
-        <button onClick={goNext} className="absolute right-[15%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <button onClick={goNext} className="absolute right-[12%] top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
           <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
         </button>
       </div>
