@@ -106,6 +106,11 @@ export default function NewsArticlePage() {
             THE BOOK OF REVERIE
           </h1>
 
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl font-bold text-black leading-tight mt-4">
+            It's an art, design, and fashion-oriented house that bridges Web 2.0 and Web 3.0. It was brought to life by @Pausrr and is made for those who seek uniqueness.
+          </p>
+
           {/* Author */}
           <div className="flex items-center gap-4 mt-4 mb-8">
             <div className="w-[38px] h-[38px] lg:w-[70px] lg:h-[70px] overflow-hidden">
