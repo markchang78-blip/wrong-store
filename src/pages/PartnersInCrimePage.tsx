@@ -162,8 +162,8 @@ function MarqueeBanner() {
       </div>
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="bg-white/85 backdrop-blur-sm w-[90%] max-w-[500px] p-8 md:p-12 text-center rounded-sm">
-          <p className="text-sm md:text-base text-[#333] leading-relaxed">A collection for those who push boundaries. Street art meets pet culture in our most rebellious line yet.</p>
-          <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore Collection <ArrowRight size={14} /></a>
+          <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mb-4">PARTNERS IN CRIME</h2>
+          <p className="text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight">A collection for those who push boundaries. Street art meets pet culture in our most rebellious line yet.</p>
         </div>
       </div>
     </section>
