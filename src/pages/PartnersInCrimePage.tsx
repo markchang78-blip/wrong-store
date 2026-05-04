@@ -46,7 +46,7 @@ function Hero() {
       <section className="relative min-h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
         <div className="relative z-10 w-full">
           {/* Mobile/Tablet Layout */}
-          <div className="lg:hidden relative w-full flex items-center justify-center" style={{ height: '580px' }}>
+          <div className="lg:hidden relative w-full flex items-center justify-center" style={{ height: '520px' }}>
             <div className="absolute left-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0">
               <img src={heroSlides[(current - 1 + heroSlides.length) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-right" />
             </div>
