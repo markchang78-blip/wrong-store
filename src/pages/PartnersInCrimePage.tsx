@@ -389,7 +389,12 @@ export default function PartnersInCrimePage() {
     <>
       <TopHero />
       <TitleSection />
-      <Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
+      <Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection />
+      {/* ====== NEW SECTION HEADER ====== */}
+      <section className="py-16 md:py-24 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">NEW SECTION TITLE</h2>
+      </section>
+      <CollectionShowcase />
       <FullWidthBanner /><BlogSection /><Ticker />
     </>
   );
