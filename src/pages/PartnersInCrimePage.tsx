@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Eye, ChevronLeft, ChevronRight, Sparkles, Shapes, Gem, Palette, Wand2 } from 'lucide-react';
+import { ArrowRight, Eye, Sparkles, Shapes, Gem, Palette, Wand2 } from 'lucide-react';
 
 const heroSlides = [
   { image: '/banner-realones.jpg', alt: 'Partners In Crime 1' },
@@ -197,9 +197,8 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
 function ProductGrid() {
   return (
     <section id="products" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Partners In Crime Picks</h2></div>
-        <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
+      <div className="mb-10 md:mb-14">
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Partners In Crime Picks</h2>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {products.map((p, i) => (<ProductCard key={p.id} product={p} index={i} />))}
@@ -221,9 +220,9 @@ function CTASection() {
     <section ref={ref} className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: 'url(/cat-defiant.jpg)' }} /><div className="absolute inset-0 bg-white/60" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <h2 className="cta-anim opacity-0 font-extrabold text-black uppercase mb-4" style={{ fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: '-0.02em' }}>BUILT FOR THE BOLD</h2>
-        <p className="cta-anim opacity-0 text-sm md:text-base text-brand-text-secondary max-w-[480px] mb-8">Street culture meets pet love. Explore the collection that started it all.</p>
-        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center px-8 py-4 bg-black text-white text-sm uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Explore Partners In Crime</a>
+        <h2 className="cta-anim opacity-0 text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mb-4">BUILT FOR THE BOLD</h2>
+        <p className="cta-anim opacity-0 text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight max-w-[480px] mb-8">Street culture meets pet love. Explore the collection that started it all.</p>
+        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center gap-2 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
       </div>
     </section>
   );
@@ -240,15 +239,8 @@ function CollectionShowcase() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Crime Duos</h2></div>
-        <div className="flex items-center gap-3">
-          <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
-          <div className="hidden md:flex gap-2">
-            <button className="w-8 h-8 flex items-center justify-center border border-black rounded-full hover:bg-black hover:text-white transition-colors"><ChevronLeft size={14} /></button>
-            <button className="w-8 h-8 flex items-center justify-center border border-black rounded-full hover:bg-black hover:text-white transition-colors"><ChevronRight size={14} /></button>
-          </div>
-        </div>
+      <div className="mb-10 md:mb-14">
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Crime Duos</h2>
       </div>
       <div className="grid md:grid-cols-2 gap-6">
         {[{ title: 'BOUNDLESS FORMS', desc: 'Unleash creativity with abstract shapes and organic designs that defy boundaries.', image: '/card-boundless.jpg' }, { title: 'TOYS', desc: 'Explore our collection of finely crafted statuettes, each one a miniature work of art.', image: '/card-toys.jpg' }].map((col, i) => (
@@ -291,14 +283,8 @@ function BlogSection() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">The Crew</h2></div>
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex gap-2">
-            <button className="w-8 h-8 flex items-center justify-center border border-black rounded-full hover:bg-black hover:text-white transition-colors"><ChevronLeft size={14} /></button>
-            <button className="w-8 h-8 flex items-center justify-center border border-black rounded-full hover:bg-black hover:text-white transition-colors"><ChevronRight size={14} /></button>
-          </div>
-        </div>
+      <div className="mb-10 md:mb-14">
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">The Crew</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {blogArticles.map((article, i) => (
