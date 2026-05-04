@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 
 // ====== Hero Slides (images) ======
 const heroSlides = [
-  { type: 'image' as const, src: '/about-hero.jpg', alt: 'The Masterminds 1' },
-  { type: 'image' as const, src: '/banner-realones.jpg', alt: 'The Masterminds 2' },
+  { type: 'image' as const, src: '/hero-masterminds-1.png', alt: 'The Masterminds 1' },
+  { type: 'image' as const, src: '/hero-masterminds-2.png', alt: 'The Masterminds 2' },
 ];
 
 // ====== Left Text Right Image Section ======
