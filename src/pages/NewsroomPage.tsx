@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+// ====== Hero Slides ======
+const heroSlides = [
+  { src: '/hero-newsroom-1.png', alt: 'Newsroom 1' },
+  { src: '/hero-newsroom-2.png', alt: 'Newsroom 2' },
+];
+
 // ====== Featured Stories ======
 const featuredStories = [
   {
@@ -64,9 +70,18 @@ const newsCards = [
 ];
 
 export default function NewsroomPage() {
+  const [heroCurrent, setHeroCurrent] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const carouselRef = useRef<HTMLDivElement>(null);
+
+  const goHeroPrev = () => setHeroCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length);
+  const goHeroNext = () => setHeroCurrent(p => (p + 1) % heroSlides.length);
+
+  useEffect(() => {
+    const timer = setInterval(() => setHeroCurrent(p => (p + 1) % heroSlides.length), 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
@@ -102,6 +117,24 @@ export default function NewsroomPage() {
 
   return (
     <div className="min-h-screen bg-brand-bg">
+      {/* ====== HERO CAROUSEL ====== */}
+      <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
+        {heroSlides.map((slide, i) => (
+          <img
+            key={i}
+            src={slide.src}
+            alt={slide.alt}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+          />
+        ))}
+        <button onClick={goHeroPrev} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+          <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+        </button>
+        <button onClick={goHeroNext} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+          <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+        </button>
+      </section>
+
       {/* ====== HERO + FEATURED 统一容器 ====== */}
       <div className="flex flex-col py-4 md:py-8 gap-6 lg:gap-12">
         {/* HERO TITLE */}
