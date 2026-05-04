@@ -196,35 +196,35 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 3 images only. Left and right moved to sides with even spacing. */}
-      <div className="hidden md:flex items-start justify-center gap-3">
-        {/* Left — moved down 40px */}
-        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+      {/* Desktop: 3 images. Top-aligned, even gap, flush to screen edges. */}
+      <div className="hidden md:flex items-start justify-center gap-3" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
+        {/* Left — flush to left edge */}
+        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — largest, not moved */}
+        {/* Center — largest */}
         <div className="w-[36%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — moved down 40px */}
-        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+        {/* Right — flush to right edge */}
+        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
 
-      {/* Mobile: 3 images only */}
-      <div className="md:hidden relative px-4">
+      {/* Mobile: 3 images, top-aligned, even gap */}
+      <div className="md:hidden relative" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
         <div className="flex items-start justify-center gap-3">
           {/* Left */}
-          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
@@ -236,7 +236,7 @@ function ShowUpNowCarousel() {
             </div>
           </div>
           {/* Right */}
-          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
