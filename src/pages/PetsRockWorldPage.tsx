@@ -314,28 +314,6 @@ function CollectionShowcase() {
   );
 }
 
-// ====== Values Section ======
-function ValuesSection() {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.querySelectorAll('.val-item').forEach((item, i) => { setTimeout(() => item.classList.add('animate-slide-up'), i * 100); }); observer.unobserve(entry.target); } }); }, { threshold: 0.2 }); if (ref.current) observer.observe(ref.current); return () => observer.disconnect(); }, []);
-
-  return (
-    <section ref={ref} id="values" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="mb-12 md:mb-16 text-center md:text-left">
-        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">A WORLD WITHOUT BORDERS</h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {[{ title: 'GLOBAL', content: 'PETS ROCK WORLD spans continents and cultures. From Tokyo pop-ups to London galleries, our community knows no boundaries.' }, { title: 'CULTURE', content: 'We blend street art, pet culture, and fashion into a unique aesthetic that resonates from São Paulo to Seoul.' }, { title: 'CREATE', content: 'Every member of our world is a creator. Whether you collect, design, or simply appreciate—you are part of the art.' }, { title: 'CONNECT', content: 'Join events, collaborations, and exclusive drops. In PETS ROCK WORLD, everyone has a seat at the table.' }].map((val, i) => (
-          <div key={i} className={`val-item opacity-0 border-l-2 pl-6 transition-all duration-400 cursor-pointer ${activeIndex === i ? 'border-brand-purple' : 'border-brand-border'}`} onMouseEnter={() => setActiveIndex(i)}>
-            <h3 className={`text-sm font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${activeIndex === i ? 'text-brand-purple' : 'text-black'}`}>{val.title}</h3>
-            <p className={`text-sm text-brand-text-secondary leading-relaxed transition-all duration-400 overflow-hidden ${activeIndex === i ? 'max-h-[200px] opacity-100' : 'max-h-0 md:max-h-[200px] opacity-0 md:opacity-100'}`}>{val.content}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 // ====== Full Width Banner ======
 function FullWidthBanner() {
@@ -411,7 +389,7 @@ export default function PetsRockWorldPage() {
   return (
     <>
       <TopHero /><TitleSection /><Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
-      <ValuesSection /><FullWidthBanner /><BlogSection /><Ticker />
+      <FullWidthBanner /><BlogSection /><Ticker />
     </>
   );
 }
