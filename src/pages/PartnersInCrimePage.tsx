@@ -196,47 +196,48 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 3 images. Top-aligned, even gap, flush to screen edges. */}
-      <div className="hidden md:flex items-start justify-center gap-3" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
-        {/* Left — flush to left edge */}
-        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
+      {/* Desktop: 3 images, same size, top-aligned.
+         Left flush to left edge, right flush to right edge, even spacing. */}
+      <div className="hidden md:flex items-start justify-between">
+        {/* Left — same size as center, flush left */}
+        <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — largest */}
-        <div className="w-[36%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
+        {/* Center — same size, z-10 on top */}
+        <div className="w-[30%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — flush to right edge */}
-        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
+        {/* Right — same size as center, flush right */}
+        <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
 
-      {/* Mobile: 3 images, top-aligned, even gap */}
-      <div className="md:hidden relative" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
-        <div className="flex items-start justify-center gap-3">
+      {/* Mobile: 3 images, same size */}
+      <div className="md:hidden relative">
+        <div className="flex items-start justify-between">
           {/* Left */}
-          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
+          <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Main */}
-          <div className="w-[50%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl">
+          <div className="w-[30%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Right */}
-          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
+          <div className="w-[30%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
