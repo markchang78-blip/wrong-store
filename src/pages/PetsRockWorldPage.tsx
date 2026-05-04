@@ -245,7 +245,7 @@ function ProductGrid() {
   return (
     <section id="products" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">Worldwide Drops</span><h2 className="text-2xl md:text-4xl font-bold mt-2">Global Favorites</h2></div>
+        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Global Favorites</h2></div>
         <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -288,7 +288,7 @@ function CollectionShowcase() {
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">World Collections</span><h2 className="text-2xl md:text-4xl font-bold mt-2">Curated Drops</h2></div>
+        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Curated Drops</h2></div>
         <div className="flex items-center gap-3">
           <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
           <div className="hidden md:flex gap-2">
@@ -323,8 +323,7 @@ function ValuesSection() {
   return (
     <section ref={ref} id="values" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="mb-12 md:mb-16 text-center md:text-left">
-        <span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">Our World</span>
-        <h2 className="text-2xl md:text-4xl font-bold mt-2">A WORLD WITHOUT BORDERS</h2>
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">A WORLD WITHOUT BORDERS</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[{ title: 'GLOBAL', content: 'PETS ROCK WORLD spans continents and cultures. From Tokyo pop-ups to London galleries, our community knows no boundaries.' }, { title: 'CULTURE', content: 'We blend street art, pet culture, and fashion into a unique aesthetic that resonates from São Paulo to Seoul.' }, { title: 'CREATE', content: 'Every member of our world is a creator. Whether you collect, design, or simply appreciate—you are part of the art.' }, { title: 'CONNECT', content: 'Join events, collaborations, and exclusive drops. In PETS ROCK WORLD, everyone has a seat at the table.' }].map((val, i) => (
@@ -364,7 +363,7 @@ function BlogSection() {
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">World Stories</span><h2 className="text-2xl md:text-4xl font-bold mt-2">From the Globe</h2></div>
+        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">From the Globe</h2></div>
         <div className="flex items-center gap-3">
           <span className="hidden md:inline-flex items-center gap-1 text-xs uppercase tracking-[0.05em] font-medium group relative cursor-pointer">Read All Stories <ArrowRight size={14} /></span>
           <div className="hidden md:flex gap-2">
