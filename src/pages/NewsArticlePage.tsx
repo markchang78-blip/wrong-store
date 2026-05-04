@@ -94,7 +94,7 @@ export default function NewsArticlePage() {
       </section>
 
       {/* ====== 2. ARTICLE CONTENT ====== */}
-      <section className="px-4 md:px-8 lg:px-16 py-8 md:py-12">
+      <section className="px-4 md:px-8 lg:px-16 pt-8 md:pt-12 pb-12 md:pb-20">
         <div className="max-w-3xl mx-auto">
           {/* Date */}
           <p className="font-bold text-xs text-black mb-3">
