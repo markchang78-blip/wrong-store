@@ -203,7 +203,7 @@ function ProductGrid() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         {/* Right: large hero carousel 9:16 - mobile first */}
-        <div className="relative order-1 lg:order-2 h-full min-h-[400px] lg:min-h-0 overflow-hidden lg:-mr-[40px]">
+        <div className="relative order-1 lg:order-2 h-full min-h-[400px] lg:min-h-0 overflow-hidden lg:-mr-[40px] lg:mt-[30px]">
           <a href="#/news" className="block w-full h-full">
             {picksHeroSlides.map((slide, i) => (
               <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
