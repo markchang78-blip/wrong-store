@@ -47,7 +47,7 @@ function Hero() {
         <div className="relative z-10 w-full">
           {/* Mobile/Tablet Layout — 高度縮短 10% */}
           <div className="lg:hidden relative w-full flex items-center justify-center" style={{ height: '468px' }}>
-            <div className="absolute left-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0 mt-[20px]">
+            <div className="absolute left-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0 mt-[30px]">
               <img src={heroSlides[(current - 1 + heroSlides.length) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-right" />
             </div>
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="absolute left-[2%] sm:left-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Previous">
@@ -65,7 +65,7 @@ function Hero() {
             <button onClick={() => setCurrent(p => (p + 1) % heroSlides.length)} className="absolute right-[2%] sm:right-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Next">
               <img src="/arrow-right.png" alt="Next" className="w-10 h-auto" />
             </button>
-            <div className="absolute right-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0 mt-[20px]">
+            <div className="absolute right-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0 mt-[30px]">
               <img src={heroSlides[(current + 1) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-left" />
             </div>
           </div>
