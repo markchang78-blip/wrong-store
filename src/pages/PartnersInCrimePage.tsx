@@ -187,20 +187,16 @@ const showUpSlides = [
 
 function ShowUpNowCarousel() {
   const [current, setCurrent] = useState(0);
-  // 移除自動輪播 - 只用箭頭手動切換
 
   const goPrev = () => setCurrent(p => (p - 1 + showUpSlides.length) % showUpSlides.length);
   const goNext = () => setCurrent(p => (p + 1) % showUpSlides.length);
 
-  const farLeftIndex = (current - 2 + showUpSlides.length) % showUpSlides.length;
   const leftIndex = (current - 1 + showUpSlides.length) % showUpSlides.length;
   const rightIndex = (current + 1) % showUpSlides.length;
-  const farRightIndex = (current + 2) % showUpSlides.length;
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 3 main images in flex, left/right moved down 40px.
-         Far edge images are absolute, placed ON TOP of arrow buttons. */}
+      {/* Desktop: 3 images only. Left and right moved to sides with even spacing. */}
       <div className="hidden md:flex items-start justify-center gap-3">
         {/* Left — moved down 40px */}
         <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
@@ -224,37 +220,23 @@ function ShowUpNowCarousel() {
         </div>
       </div>
 
-      {/* Far left edge — absolute, ON TOP of left arrow button (z-30 > z-20) */}
-      <div className="hidden md:block absolute left-2 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 w-10 opacity-60 overflow-hidden rounded-xl">
-        <div style={{ aspectRatio: '9/16' }}>
-          <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
-        </div>
-      </div>
-
-      {/* Far right edge — absolute, ON TOP of right arrow button (z-30 > z-20) */}
-      <div className="hidden md:block absolute right-2 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 w-10 opacity-60 overflow-hidden rounded-xl">
-        <div style={{ aspectRatio: '9/16' }}>
-          <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
-        </div>
-      </div>
-
-      {/* Mobile: 3 images, left/right edges moved down 40px */}
+      {/* Mobile: 3 images only */}
       <div className="md:hidden relative px-4">
         <div className="flex items-start justify-center gap-3">
-          {/* Left edge */}
-          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl mt-[40px]">
+          {/* Left */}
+          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Main */}
-          <div className="w-[62%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl">
+          <div className="w-[50%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
             </div>
           </div>
-          {/* Right edge */}
-          <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl mt-[40px]">
+          {/* Right */}
+          <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
@@ -262,7 +244,7 @@ function ShowUpNowCarousel() {
         </div>
       </div>
 
-      {/* Arrows — z-20, below the far edge images (z-30) */}
+      {/* Arrows */}
       <button onClick={goPrev} className="absolute left-2 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
         <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
       </button>
