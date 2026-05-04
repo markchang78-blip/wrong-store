@@ -45,15 +45,15 @@ function Hero() {
     <>
       <section className="relative min-h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
         <div className="relative z-10 w-full">
-          {/* Mobile/Tablet Layout */}
-          <div className="lg:hidden relative w-full flex items-center justify-center" style={{ height: '520px' }}>
+          {/* Mobile/Tablet Layout — 高度縮短 10% */}
+          <div className="lg:hidden relative w-full flex items-center justify-center" style={{ height: '468px' }}>
             <div className="absolute left-0 w-[6%] sm:w-[5%] h-full overflow-hidden opacity-40 z-0">
               <img src={heroSlides[(current - 1 + heroSlides.length) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-right" />
             </div>
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="absolute left-[2%] sm:left-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Previous">
               <img src="/arrow-left.png" alt="Previous" className="w-10 h-auto" />
             </button>
-            <div className={`relative w-[84%] sm:w-[78%] h-[580px] sm:h-[620px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <div className={`relative w-[84%] sm:w-[78%] h-[522px] sm:h-[558px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
               <a href="#/news" className="block w-full h-full overflow-hidden">
                 {heroSlides.map((slide, i) => (<img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${i === current ? 'opacity-100' : 'opacity-0'}`} />))}
               </a>
