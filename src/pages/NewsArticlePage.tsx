@@ -136,7 +136,7 @@ export default function NewsArticlePage() {
                 
                 {/* Inline Image */}
                 {section.image && (
-                  <div className="w-full -mx-4 md:mx-0 md:rounded-lg overflow-hidden">
+                  <div className="relative w-screen left-1/2 -translate-x-1/2 md:w-full md:left-0 md:translate-x-0 overflow-hidden">
                     <img
                       src={section.image}
                       alt={section.lead}
@@ -189,9 +189,9 @@ export default function NewsArticlePage() {
                 key={i}
                 href={article.link}
                 className={`group flex-shrink-0 snap-center transition-all duration-[800ms] ease-out ${isVisible('whats-next') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ 
+                style={{
                   transitionDelay: `${i * 100}ms`,
-                  width: 'calc(50% - 8px)',
+                  width: '85%',
                 }}
               >
                 {/* Image */}
