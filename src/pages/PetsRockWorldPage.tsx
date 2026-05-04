@@ -266,9 +266,9 @@ function CTASection() {
     <section ref={ref} className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center bg-fixed" style={{ backgroundImage: 'url(/cat-authentic.jpg)' }} /><div className="absolute inset-0 bg-white/60" />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <h2 className="cta-anim opacity-0 font-extrabold text-black uppercase mb-4" style={{ fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: '-0.02em' }}>THE STREET IS OURS</h2>
-        <p className="cta-anim opacity-0 text-sm md:text-base text-brand-text-secondary max-w-[480px] mb-8">From the pavement to the penthouse. PETS ROCK WORLD is everywhere.</p>
-        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center px-8 py-4 bg-black text-white text-sm uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Explore Pets Rock World</a>
+        <h2 className="cta-anim opacity-0 text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mb-4">THE STREET IS OURS</h2>
+        <p className="cta-anim opacity-0 text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight max-w-[480px] mb-8">From the pavement to the penthouse. PETS ROCK WORLD is everywhere.</p>
+        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center gap-2 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
       </div>
     </section>
   );
