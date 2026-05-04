@@ -64,7 +64,7 @@ export default function PetsForLifePage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       {/* ====== 1. HERO CAROUSEL (Video + Image) ====== */}
-      <section className="relative w-full h-[360px] md:h-[540px] lg:h-[660px] xl:h-[720px] 2xl:h-[780px] overflow-hidden">
+      <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
         {heroSlides.map((slide, i) => (
           <div
             key={i}

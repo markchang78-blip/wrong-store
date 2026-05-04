@@ -43,7 +43,7 @@ function Hero() {
 
   return (
     <>
-      <section className="relative h-[50vh] min-h-[320px] md:h-screen md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
+      <section className="relative min-h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
         <div className="relative z-10 w-full">
           {/* Mobile/Tablet Layout */}
           <div className="lg:hidden relative w-full flex items-center justify-center">
