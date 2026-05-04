@@ -152,6 +152,30 @@ export default function NewsArticlePage() {
               </div>
             ))}
           </div>
+
+          {/* Social Share Buttons */}
+          <div className="flex items-center justify-center gap-6 mt-10 md:mt-14">
+            {/* YouTube */}
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-black"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            {/* Facebook */}
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-black"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            {/* Weibo */}
+            <a href="https://weibo.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-black"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.194.573zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.578-.18-.4-.649.388-1.032.428-1.923.008-2.558-.786-1.187-2.937-1.123-5.399-.033 0 0-.773.34-.576-.275.381-1.215.324-2.234-.27-2.821-1.35-1.33-4.945.045-8.025 3.07C1.019 10.729 0 13.347 0 15.569c0 4.247 5.443 6.832 10.766 6.832 6.976 0 11.613-4.053 11.613-7.272 0-1.943-1.64-3.045-3.32-3.48zm.617-5.404c.668.746.75 1.793.276 2.63-.139.24-.472.334-.715.206-.247-.128-.332-.432-.196-.68.292-.51.231-1.14-.194-1.54-.419-.397-1.05-.477-1.557-.232-.251.12-.544.008-.665-.244-.123-.253-.009-.547.242-.668.829-.396 1.812-.264 2.509.528zm1.582-1.758c1.295 1.449 1.455 3.472.536 5.093-.269.465-.869.629-1.334.359-.464-.27-.63-.87-.36-1.334.617-1.07.513-2.455-.358-3.427-.868-.97-2.238-1.18-3.353-.599-.396.206-.888.052-1.095-.344-.205-.397-.052-.888.344-1.095 1.642-.854 3.647-.56 4.96.347z"/></svg>
+            </a>
+            {/* X (Twitter) */}
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-black"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            {/* Instagram */}
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:opacity-70 transition-opacity">
+              <svg viewBox="0 0 24 24" className="w-full h-full fill-current text-black"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -159,7 +183,7 @@ export default function NewsArticlePage() {
       <section
         id="whats-next"
         ref={setRef('whats-next')}
-        className="py-8 md:py-12"
+        className="pt-20 md:pt-36 pb-8 md:pb-12"
       >
         <div className="max-w-3xl mx-auto px-4 md:px-8 lg:px-16">
           <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none text-center mb-8">
