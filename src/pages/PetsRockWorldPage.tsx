@@ -210,7 +210,7 @@ function MarqueeBanner() {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="bg-white/85 backdrop-blur-sm w-[90%] max-w-[500px] p-8 md:p-12 text-center rounded-sm">
           <p className="text-sm md:text-base text-[#333] leading-relaxed">A global community united by love for pets and street culture. Welcome to the world we built together.</p>
-          <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <ArrowRight size={14} /></a>
+          <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
         </div>
       </div>
     </section>
