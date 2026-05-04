@@ -267,31 +267,6 @@ function CollectionShowcase() {
   );
 }
 
-// ====== Values Section ======
-function ValuesSection() {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.querySelectorAll('.val-item').forEach((item, i) => { setTimeout(() => item.classList.add('animate-slide-up'), i * 100); }); observer.unobserve(entry.target); } }); }, { threshold: 0.2 }); if (ref.current) observer.observe(ref.current); return () => observer.disconnect(); }, []);
-
-  return (
-    <section ref={ref} id="values" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="mb-12 md:mb-16 text-center md:text-left">
-        <span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">Our Values</span>
-        <h2 className="text-2xl md:text-4xl font-bold mt-2">REBELS WITH A CAUSE</h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {[{ title: 'COMMUNITY', content: 'At the heart of Partners In Crime is connection. A brotherhood of creators, collectors, and rebels who share a passion for street culture and pet art.' }, { title: 'ROOTS', content: 'Our journey started in the underground. Skate parks, graffiti walls, and late-night studios—this is where PETS ROCK was born.' }, { title: 'BRAND VISION', content: 'We don\'t follow trends. We set them. Every piece is a statement of individuality, crafted for those who dare to stand out.' }, { title: 'BEYOND BORDERS', content: 'From Tokyo to London, New York to São Paulo—our Partners In Crime movement spans the globe, uniting cultures through art.' }].map((val, i) => (
-          <div key={i} className={`val-item opacity-0 border-l-2 pl-6 transition-all duration-400 cursor-pointer ${activeIndex === i ? 'border-brand-purple' : 'border-brand-border'}`} onMouseEnter={() => setActiveIndex(i)}>
-            <h3 className={`text-sm font-semibold uppercase tracking-wider mb-3 transition-colors duration-300 ${activeIndex === i ? 'text-brand-purple' : 'text-black'}`}>{val.title}</h3>
-            <p className={`text-sm text-brand-text-secondary leading-relaxed transition-all duration-400 overflow-hidden ${activeIndex === i ? 'max-h-[200px] opacity-100' : 'max-h-0 md:max-h-[200px] opacity-0 md:opacity-100'}`}>{val.content}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// ====== Full Width Banner ======
 function FullWidthBanner() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => { const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.querySelectorAll('.fw-anim').forEach((item, i) => { setTimeout(() => item.classList.add('animate-slide-up'), i * 80); }); observer.unobserve(entry.target); } }); }, { threshold: 0.3 }); if (ref.current) observer.observe(ref.current); return () => observer.disconnect(); }, []);
@@ -328,11 +303,7 @@ function BlogSection() {
       <div className="grid md:grid-cols-3 gap-8">
         {blogArticles.map((article, i) => (
           <article key={i} className="blog-card opacity-0 group cursor-pointer">
-            <div className="aspect-[5/6] overflow-hidden -mx-4 md:mx-0 md:rounded-lg mb-4"><img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div>
-            <div className="flex items-center gap-2 text-[11px] uppercase tracking-wider text-brand-text-muted mb-2"><span className="bg-black text-white px-2 py-0.5">{article.date}</span><span>{article.author}</span></div>
-            <h3 className="text-lg font-semibold leading-snug mb-2 group-hover:text-brand-purple transition-colors">{article.title}</h3>
-            <p className="text-sm text-brand-text-secondary line-clamp-2 mb-4">{article.excerpt}</p>
-            <span className="inline-flex items-center gap-1 text-xs uppercase tracking-[0.05em] font-medium relative">Read Story <ArrowRight size={14} /></span>
+            <div className="aspect-[5/6] overflow-hidden -mx-4 md:mx-0 md:rounded-lg"><img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div>
           </article>
         ))}
       </div>
@@ -413,7 +384,7 @@ export default function PartnersInCrimePage() {
       <TopHero />
       <TitleSection />
       <Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
-      <ValuesSection /><FullWidthBanner /><BlogSection /><Ticker />
+      <FullWidthBanner /><BlogSection /><Ticker />
     </>
   );
 }
