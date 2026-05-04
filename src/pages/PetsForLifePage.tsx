@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-// ====== Hero Slides (video + image) ======
+// ====== Hero Slides (images) ======
 const heroSlides = [
-  { type: 'video' as const, src: '/hero-video.mp4', alt: 'Pets For Life Video' },
-  { type: 'image' as const, src: '/petsforlife-hero.png', alt: 'Pets For Life' },
+  { type: 'image' as const, src: '/hero-pets-life-1.png', alt: 'Pets For Life 1' },
+  { type: 'image' as const, src: '/hero-pets-life-2.png', alt: 'Pets For Life 2' },
 ];
 
 // ====== Left Text Right Image Section ======
@@ -72,17 +72,7 @@ export default function PetsForLifePage() {
               i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            {slide.type === 'video' ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-                src={slide.src}
-              />
-            ) : (
+            {slide.type === 'image' && (
               <img
                 src={slide.src}
                 alt={slide.alt}
