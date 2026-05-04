@@ -34,7 +34,7 @@ export default function PetsDoRockPage() {
   return (
     <div className="min-h-screen bg-brand-bg">
       {/* ====== Hero Carousel ====== */}
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: '2078/1470', maxHeight: '80vh' }}>
+      <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           {heroSlides.map((slide, i) => (
             <img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
