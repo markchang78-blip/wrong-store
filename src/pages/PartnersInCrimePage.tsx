@@ -170,38 +170,59 @@ function MarqueeBanner() {
   );
 }
 
-// ====== Product Card ======
-function ProductCard({ product, index }: { product: typeof products[0]; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('animate-slide-up'), index * 100); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, [index]);
+// ====== Right Side Hero Carousel ======
+const picksHeroSlides = [
+  { src: '/hero-partners-picks.png', alt: 'Partners In Crime Featured' },
+  { src: '/hero-partners-picks.png', alt: 'Partners In Crime Featured 2' },
+];
 
+// ====== Product Card ======
+function ProductCard({ product }: { product: typeof products[0] }) {
   return (
-    <div ref={cardRef} className="group cursor-pointer opacity-0">
-      <div className="relative aspect-[5/6] bg-[#eeeeee] overflow-hidden mb-3 -mx-4 md:mx-0">
+    <div className="group cursor-pointer">
+      <div className="relative aspect-square bg-[#eeeeee] overflow-hidden">
         <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           <button className="bg-white/90 text-black text-xs uppercase tracking-wider font-medium px-4 py-2 flex items-center gap-2"><Eye size={14} /> Quick View</button>
         </div>
       </div>
-      <h3 className="text-sm font-semibold text-black">{product.name}</h3>
-      <p className="text-sm text-brand-text-secondary mt-1">${product.price.toFixed(2)}</p>
+      <h3 className="text-lg md:text-xl font-black text-black uppercase tracking-tighter leading-none mt-3">{product.name}</h3>
     </div>
   );
 }
 
 // ====== Product Grid ======
 function ProductGrid() {
+  const [heroCurrent, setHeroCurrent] = useState(0);
+  useEffect(() => { const i = setInterval(() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length), 5000); return () => clearInterval(i); }, []);
+
   return (
     <section id="products" className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="mb-10 md:mb-14">
         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Partners In Crime Picks</h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {products.map((p, i) => (<ProductCard key={p.id} product={p} index={i} />))}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left: 4 products in 2x2 grid */}
+        <div className="lg:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
+          {products.map((p) => (<ProductCard key={p.id} product={p} />))}
+        </div>
+        {/* Right: large hero carousel */}
+        <div className="lg:col-span-1 relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
+          <a href="#/news" className="block w-full h-full">
+            {picksHeroSlides.map((slide, i) => (
+              <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
+                <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </a>
+          {/* Arrows */}
+          <button onClick={() => setHeroCurrent(p => (p - 1 + picksHeroSlides.length) % picksHeroSlides.length)} className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+            <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+          </button>
+          <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+            <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+          </button>
+        </div>
       </div>
     </section>
   );
