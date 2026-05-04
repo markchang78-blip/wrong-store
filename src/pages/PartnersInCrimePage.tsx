@@ -7,6 +7,11 @@ const heroSlides = [
   { image: '/hero-bunny.jpg', alt: 'Partners In Crime 3' },
 ];
 
+const topHeroSlides = [
+  { src: '/hero-partners-1.png', alt: 'Partners In Crime Hero 1' },
+  { src: '/hero-partners-2.png', alt: 'Partners In Crime Hero 2' },
+];
+
 const categories = [
   { title: 'TOYS', description: 'Rebellious, handcrafted figures born from street culture and pet attitude. Each piece is a statement of individuality, perfect for those who refuse to blend in.', linkText: 'Shop Toys', image: '/cat-toys.jpg', reverse: false },
   { title: 'KEYCHAINS', description: 'Street-inspired keychains that carry the PETS ROCK attitude wherever you go. Bold designs, premium materials, unmistakable swagger.', linkText: 'Shop Keychains', image: '/cat-keychains.jpg', reverse: true },
@@ -38,7 +43,7 @@ function Hero() {
 
   return (
     <>
-      <section className="relative min-h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
+      <section className="relative h-[50vh] min-h-[320px] md:h-screen md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden pt-0 pb-8 md:pb-16">
         <div className="relative z-10 w-full">
           {/* Mobile/Tablet Layout */}
           <div className="lg:hidden relative w-full flex items-center justify-center">
@@ -48,7 +53,7 @@ function Hero() {
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="absolute left-[2%] sm:left-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Previous">
               <img src="/arrow-left.png" alt="Previous" className="w-10 h-auto" />
             </button>
-            <div className={`relative w-[84%] sm:w-[78%] h-[580px] sm:h-[620px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <div className={`relative w-[84%] sm:w-[78%] h-[calc(50vh-60px)] min-h-[260px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
               <a href="#/news" className="block w-full h-full overflow-hidden">
                 {heroSlides.map((slide, i) => (<img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${i === current ? 'opacity-100' : 'opacity-0'}`} />))}
               </a>
@@ -73,7 +78,7 @@ function Hero() {
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="hover:opacity-60 transition-opacity mx-2 flex-shrink-0" aria-label="Previous">
               <img src="/arrow-left.png" alt="Previous" className="w-12 h-auto" />
             </button>
-            <div className={`relative w-[600px] xl:w-[720px] h-[640px] xl:h-[740px] flex-shrink-0 mt-[30px] md:mt-[40px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <div className={`relative w-[600px] xl:w-[720px] h-[calc(100vh-160px)] md:h-[calc(100vh-180px)] xl:h-[calc(100vh-200px)] flex-shrink-0 mt-[30px] md:mt-[40px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
               <a href="#/news" className="block w-full h-full overflow-hidden">
                 {heroSlides.map((slide, i) => (<img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${i === current ? 'opacity-100' : 'opacity-0'}`} />))}
               </a>
@@ -348,10 +353,59 @@ function Ticker() {
   );
 }
 
+// ====== Top Hero Banner (new full-width carousel) ======
+function TopHero() {
+  const [current, setCurrent] = useState(0);
+  useEffect(() => { const i = setInterval(() => setCurrent(p => (p + 1) % topHeroSlides.length), 5000); return () => clearInterval(i); }, []);
+  const goPrev = () => setCurrent(p => (p - 1 + topHeroSlides.length) % topHeroSlides.length);
+  const goNext = () => setCurrent(p => (p + 1) % topHeroSlides.length);
+
+  return (
+    <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
+      {topHeroSlides.map((slide, i) => (
+        <img
+          key={i}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        />
+      ))}
+      <button onClick={goPrev} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+      </button>
+      <button onClick={goNext} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+      </button>
+    </section>
+  );
+}
+
+// ====== Title Section ======
+function TitleSection() {
+  return (
+    <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
+      <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
+        <img src="/pr1.png" alt="PETS ROCK" className="h-[60px] md:h-[80px] lg:h-[100px] w-auto flex-shrink-0" />
+        <h1 className="text-[10vw] md:text-[8vw] lg:text-[10vw] 2xl:text-[11vw] font-black text-black uppercase tracking-tighter leading-none">
+          HANDBOOK
+        </h1>
+      </div>
+      <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-8 md:mt-12">
+        PARTNERS IN CRIME
+      </h2>
+      <p className="text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight text-center md:max-w-[85%] lg:max-w-[75%] mt-6">
+        A collection for those who push boundaries. Street art meets pet culture in our most rebellious line yet.
+      </p>
+    </section>
+  );
+}
+
 // ====== Main Export ======
 export default function PartnersInCrimePage() {
   return (
     <>
+      <TopHero />
+      <TitleSection />
       <Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
       <ValuesSection /><FullWidthBanner /><BlogSection /><Ticker />
     </>
