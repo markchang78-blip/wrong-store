@@ -199,51 +199,47 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 5 images, all 9/16, top-aligned, uniform gap.
-         1. 中間以外的四張圖都往下移 40px (mt-[40px])
-         2. 最外側兩張圖貼齊螢幕左右邊 (mx-[-20px] + overflow-hidden 裁切)
-         3. 所有圖之間間距統一 (gap-3 = 12px)
-         寬度比例: 70px + 24% + 32% + 24% + 70px */}
-      <div className="hidden md:flex items-start justify-center gap-3" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
-        {/* Far left edge — 90px 寬，左邊 20px 被裁掉，可見 70px */}
-        <div className="w-[90px] flex-shrink-0 opacity-60 overflow-hidden rounded-xl mt-[40px]">
-          <div style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        {/* Left — 24% */}
-        <div className="w-[24%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+      {/* Desktop: 3 main images in flex, left/right moved down 40px.
+         Far edge images are absolute, placed ON TOP of arrow buttons. */}
+      <div className="hidden md:flex items-start justify-center gap-3">
+        {/* Left — moved down 40px */}
+        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — 32% 寬度，最大，不往下移 */}
-        <div className="w-[32%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
+        {/* Center — largest, not moved */}
+        <div className="w-[36%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — 24% */}
-        <div className="w-[24%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
+        {/* Right — moved down 40px */}
+        <div className="w-[22%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl mt-[40px]">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
+      </div>
 
-        {/* Far right edge — 90px 寬，右邊 20px 被裁掉，可見 70px */}
-        <div className="w-[90px] flex-shrink-0 opacity-60 overflow-hidden rounded-xl mt-[40px]">
-          <div style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
-          </div>
+      {/* Far left edge — absolute, ON TOP of left arrow button (z-30 > z-20) */}
+      <div className="hidden md:block absolute left-2 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-30 w-10 opacity-60 overflow-hidden rounded-xl">
+        <div style={{ aspectRatio: '9/16' }}>
+          <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
         </div>
       </div>
 
-      {/* Mobile: 3 images, all 9/16.
-         左右邊緣往下移 40px，中間不動，間距統一 gap-3 */}
-      <div className="md:hidden relative" style={{ marginLeft: '-20px', marginRight: '-20px' }}>
+      {/* Far right edge — absolute, ON TOP of right arrow button (z-30 > z-20) */}
+      <div className="hidden md:block absolute right-2 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-30 w-10 opacity-60 overflow-hidden rounded-xl">
+        <div style={{ aspectRatio: '9/16' }}>
+          <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      {/* Mobile: 3 images, left/right edges moved down 40px */}
+      <div className="md:hidden relative px-4">
         <div className="flex items-start justify-center gap-3">
           {/* Left edge */}
           <div className="w-[15%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl mt-[40px]">
@@ -266,7 +262,7 @@ function ShowUpNowCarousel() {
         </div>
       </div>
 
-      {/* Arrows */}
+      {/* Arrows — z-20, below the far edge images (z-30) */}
       <button onClick={goPrev} className="absolute left-2 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
         <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
       </button>
