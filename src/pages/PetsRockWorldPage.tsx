@@ -285,12 +285,8 @@ function CollectionShowcase() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">Curated Drops</h2></div>
-        <div className="flex gap-2">
-          <button className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Previous"><img src="/arrow-left.png" alt="Previous" className="w-6 h-auto" /></button>
-          <button className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Next"><img src="/arrow-right.png" alt="Next" className="w-6 h-auto" /></button>
-        </div>
+      <div className="mb-10 md:mb-14">
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Curated Drops</h2>
       </div>
       <div className="grid md:grid-cols-2 gap-6">
         {[{ title: 'BOUNDLESS FORMS', desc: 'Unleash creativity with abstract shapes and organic designs that defy boundaries.', image: '/card-boundless.jpg' }, { title: 'TOYS', desc: 'Explore our collection of finely crafted statuettes, each one a miniature work of art.', image: '/card-toys.jpg' }].map((col, i) => (
@@ -335,12 +331,8 @@ function BlogSection() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
-      <div className="flex items-end justify-between mb-10 md:mb-14">
-        <div><h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-2">From the Globe</h2></div>
-        <div className="flex gap-2">
-          <button className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Previous"><img src="/arrow-left.png" alt="Previous" className="w-6 h-auto" /></button>
-          <button className="w-10 h-10 flex items-center justify-center hover:opacity-80 transition-opacity" aria-label="Next"><img src="/arrow-right.png" alt="Next" className="w-6 h-auto" /></button>
-        </div>
+      <div className="mb-10 md:mb-14">
+        <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">From the Globe</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {blogArticles.map((article, i) => (
