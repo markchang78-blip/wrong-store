@@ -181,6 +181,7 @@ const showUpSlides = [
   { src: '/hero-partners-1.png', alt: 'Show Up Now 1' },
   { src: '/hero-partners-2.png', alt: 'Show Up Now 2' },
   { src: '/banner-realones.jpg', alt: 'Show Up Now 3' },
+  { src: '/about-hero.jpg', alt: 'Show Up Now 4' },
 ];
 
 function ShowUpNowCarousel() {
@@ -196,49 +197,70 @@ function ShowUpNowCarousel() {
   const goPrev = () => setCurrent(p => (p - 1 + showUpSlides.length) % showUpSlides.length);
   const goNext = () => setCurrent(p => (p + 1) % showUpSlides.length);
 
-  const prevIndex = (current - 1 + showUpSlides.length) % showUpSlides.length;
-  const nextIndex = (current + 1) % showUpSlides.length;
+  // Calculate indices for 5 visible images
+  const farLeftIndex = (current - 2 + showUpSlides.length) % showUpSlides.length;
+  const leftIndex = (current - 1 + showUpSlides.length) % showUpSlides.length;
+  const rightIndex = (current + 1) % showUpSlides.length;
+  const farRightIndex = (current + 2) % showUpSlides.length;
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 3 images side by side */}
-      <div className="hidden md:flex items-center justify-center gap-4 lg:gap-6 px-4">
-        {/* Left preview */}
-        <div className="w-[28%] lg:w-[25%] flex-shrink-0 relative opacity-70">
-          <div style={{ aspectRatio: '5/8' }} className="overflow-hidden rounded-lg">
-            <img src={showUpSlides[prevIndex].src} alt={showUpSlides[prevIndex].alt} className="w-full h-full object-cover" />
+      {/* Desktop: 5 images side by side, aligned at bottom */}
+      <div className="hidden md:flex items-end justify-center gap-3 lg:gap-4 px-2 lg:px-4">
+        {/* Far left edge peek */}
+        <div className="w-[4%] lg:w-[3%] flex-shrink-0 opacity-50 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '5/8' }}>
+            <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center main */}
-        <div className="w-[44%] lg:w-[40%] flex-shrink-0 relative z-10">
-          <div style={{ aspectRatio: '9/16' }} className="overflow-hidden rounded-lg shadow-2xl">
+        {/* Left preview 5:8 */}
+        <div className="w-[22%] lg:w-[20%] flex-shrink-0 opacity-80 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '5/8' }}>
+            <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Center main 9:16 */}
+        <div className="w-[44%] lg:w-[40%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-2xl">
+          <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right preview */}
-        <div className="w-[28%] lg:w-[25%] flex-shrink-0 relative opacity-70">
-          <div style={{ aspectRatio: '5/8' }} className="overflow-hidden rounded-lg">
-            <img src={showUpSlides[nextIndex].src} alt={showUpSlides[nextIndex].alt} className="w-full h-full object-cover" />
+        {/* Right preview 5:8 */}
+        <div className="w-[22%] lg:w-[20%] flex-shrink-0 opacity-80 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '5/8' }}>
+            <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        {/* Far right edge peek */}
+        <div className="w-[4%] lg:w-[3%] flex-shrink-0 opacity-50 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '5/8' }}>
+            <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
 
-      {/* Mobile: single image with edge peek */}
+      {/* Mobile: 3 images with edge peek */}
       <div className="md:hidden relative px-8">
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-end justify-center gap-2">
           {/* Left edge peek */}
-          <div className="absolute left-0 w-[15%] h-full opacity-60 overflow-hidden">
-            <img src={showUpSlides[prevIndex].src} alt="" className="w-full h-full object-cover" style={{ aspectRatio: '5/8' }} />
+          <div className="w-[10%] opacity-60 overflow-hidden rounded-lg">
+            <div style={{ aspectRatio: '5/8' }}>
+              <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
           {/* Main */}
-          <div className="w-[70%] relative z-10" style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover rounded-lg" />
+          <div className="w-[70%] relative z-10 overflow-hidden rounded-lg shadow-xl" style={{ aspectRatio: '9/16' }}>
+            <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
           {/* Right edge peek */}
-          <div className="absolute right-0 w-[15%] h-full opacity-60 overflow-hidden">
-            <img src={showUpSlides[nextIndex].src} alt="" className="w-full h-full object-cover" style={{ aspectRatio: '5/8' }} />
+          <div className="w-[10%] opacity-60 overflow-hidden rounded-lg">
+            <div style={{ aspectRatio: '5/8' }}>
+              <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
       </div>
@@ -264,6 +286,8 @@ function ShowUpNowCarousel() {
     </section>
   );
 }
+
+
 function ProductCard({ product }: { product: typeof products[0] }) {
   return (
     <div className="group cursor-pointer">
