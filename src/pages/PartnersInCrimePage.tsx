@@ -220,7 +220,7 @@ function ProductGrid() {
           </button>
         </div>
         {/* Left: 4 products in 2x2 grid, each 4:5 */}
-        <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-5">
+        <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-5 mt-[30px]">
           {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
         </div>
       </div>
