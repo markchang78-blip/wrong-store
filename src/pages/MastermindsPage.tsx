@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowRight } from 'lucide-react';
 
 // ====== Hero Slides (images) ======
 const heroSlides = [
@@ -107,7 +106,7 @@ export default function MastermindsPage() {
         {/* Logo + Masterminds — same row */}
         <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
           <img src="/pr1.png" alt="PETS ROCK" className="h-[60px] md:h-[80px] lg:h-[100px] w-auto flex-shrink-0" />
-          <h1 className="text-[10vw] md:text-[8vw] lg:text-[10vw] 2xl:text-[11vw] font-black text-black uppercase tracking-tighter leading-none">
+          <h1 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">
             MASTERMINDS
           </h1>
         </div>
@@ -194,7 +193,7 @@ export default function MastermindsPage() {
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="bg-white/85 backdrop-blur-sm w-[90%] max-w-[500px] p-8 md:p-12 text-center">
             <p className="text-sm md:text-base text-[#333] leading-relaxed">Visionaries, creators, and strategists united by a singular mission: to make PETS ROCK a permanent fixture in global street culture.</p>
-            <a href="#/collections" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore Collections <ArrowRight size={14} /></a>
+            <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
           </div>
         </div>
       </section>
@@ -204,7 +203,7 @@ export default function MastermindsPage() {
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <h2 className="font-extrabold text-black uppercase mb-4" style={{ fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: '-0.02em' }}>JOIN THE MOVEMENT</h2>
           <p className="text-sm md:text-base text-brand-text-secondary max-w-[480px] mb-8">Be part of the culture. Collect, create, and connect with PETS ROCK WORLD.</p>
-          <a href="#/collections" className="inline-flex items-center px-8 py-4 bg-black text-white text-sm uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Explore Collections</a>
+          <a href="#/news" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
         </div>
       </section>
 

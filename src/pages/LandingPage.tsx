@@ -93,7 +93,7 @@ function MarqueeBanner() {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="bg-white/85 backdrop-blur-sm w-[90%] max-w-[500px] p-8 md:p-12 text-center rounded-sm">
           <p className="text-sm md:text-base text-[#333] leading-relaxed">Our latest collection of designer figurines is crafted to perfection. Limited edition and ready to be a part of your personal gallery.</p>
-          <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore Collection <ArrowRight size={14} /></a>
+          <a href="#/news" className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
         </div>
       </div>
     </section>
@@ -129,7 +129,6 @@ function ProductGrid() {
     <section id="products" className="py-24 md:py-32 px-4 md:px-8 lg:px-16 bg-[#f2f0eb]" style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <div className="flex items-end justify-between mb-10 md:mb-14">
         <div><span className="text-[11px] uppercase tracking-[0.1em] font-semibold text-brand-purple">New Collection</span><h2 className="text-2xl md:text-4xl font-bold mt-2">Creative Items</h2></div>
-        <a href="#/news" className="hidden md:inline-flex items-center px-5 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Shop All</a>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {products.slice(0, 4).map((p, i) => (<ProductCard key={p.id} product={p} index={i} />))}
@@ -153,7 +152,7 @@ function CTASection() {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h2 className="cta-anim opacity-0 font-extrabold text-black uppercase mb-4" style={{ fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: '-0.02em' }}>ESSENTIALS WITH A BOLD TWIST</h2>
         <p className="cta-anim opacity-0 text-sm md:text-base text-brand-text-secondary max-w-[480px] mb-8">Brighten your day with modern designs that are as bold as you are.</p>
-        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center px-8 py-4 bg-black text-white text-sm uppercase tracking-wider font-medium hover:bg-white hover:text-black border border-black transition-colors">Explore Campaign</a>
+        <a href="#/news" className="cta-anim opacity-0 inline-flex items-center gap-2 text-xs uppercase tracking-[0.05em] font-medium text-black group relative">Explore World <img src="/arrow-right-custom.png" alt="" className="w-4 h-4 object-contain" /></a>
       </div>
     </section>
   );

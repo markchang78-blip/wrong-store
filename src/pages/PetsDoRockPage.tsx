@@ -40,11 +40,11 @@ export default function PetsDoRockPage() {
             <img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
           ))}
         </div>
-        <button onClick={goPrev} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 hover:opacity-80 transition-opacity" aria-label="Previous">
-          <img src="/arrow-left.png" alt="Previous" className="w-10 md:w-14 h-auto" />
+        <button onClick={goPrev} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+          <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
         </button>
-        <button onClick={goNext} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 hover:opacity-80 transition-opacity" aria-label="Next">
-          <img src="/arrow-right.png" alt="Next" className="w-10 md:w-14 h-auto" />
+        <button onClick={goNext} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+          <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
         </button>
       </section>
 
