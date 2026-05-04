@@ -201,13 +201,9 @@ function ProductGrid() {
       <div className="mb-10 md:mb-14">
         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Partners In Crime Picks</h2>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-        {/* Left: 4 products in 2x2 grid, each 4:5 */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6">
-          {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
-        </div>
-        {/* Right: large hero carousel 9:16 */}
-        <div className="relative h-full min-h-[400px] overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+        {/* Right: large hero carousel 9:16 - mobile first */}
+        <div className="relative order-1 lg:order-2 h-full min-h-[400px] lg:min-h-0 overflow-hidden lg:-mr-5">
           <a href="#/news" className="block w-full h-full">
             {picksHeroSlides.map((slide, i) => (
               <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
@@ -222,6 +218,10 @@ function ProductGrid() {
           <button onClick={() => setHeroCurrent(p => (p + 1) % picksHeroSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
             <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
           </button>
+        </div>
+        {/* Left: 4 products in 2x2 grid, each 4:5 */}
+        <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 lg:-ml-5">
+          {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
         </div>
       </div>
     </section>
