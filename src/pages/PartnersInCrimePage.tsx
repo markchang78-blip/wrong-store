@@ -180,7 +180,7 @@ const picksHeroSlides = [
 function ProductCard({ product }: { product: typeof products[0] }) {
   return (
     <div className="group cursor-pointer">
-      <div className="relative aspect-square bg-[#eeeeee] overflow-hidden">
+      <div className="relative aspect-[4/5] bg-[#eeeeee] overflow-hidden">
         <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           <button className="bg-white/90 text-black text-xs uppercase tracking-wider font-medium px-4 py-2 flex items-center gap-2"><Eye size={14} /> Quick View</button>
@@ -201,17 +201,17 @@ function ProductGrid() {
       <div className="mb-10 md:mb-14">
         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none">Partners In Crime Picks</h2>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left: 4 products in 2x2 grid */}
-        <div className="lg:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
-          {products.map((p) => (<ProductCard key={p.id} product={p} />))}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        {/* Left: 4 products in 2x2 grid, each 4:5 */}
+        <div className="grid grid-cols-2 gap-4 md:gap-6">
+          {products.slice(0, 4).map((p) => (<ProductCard key={p.id} product={p} />))}
         </div>
-        {/* Right: large hero carousel */}
-        <div className="lg:col-span-1 relative overflow-hidden" style={{ aspectRatio: '4/5' }}>
+        {/* Right: large hero carousel 9:16 */}
+        <div className="relative h-full min-h-[400px] overflow-hidden">
           <a href="#/news" className="block w-full h-full">
             {picksHeroSlides.map((slide, i) => (
               <div key={i} className={`absolute inset-0 transition-opacity duration-700 ${i === heroCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
-                <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
+                <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" style={{ aspectRatio: '9/16' }} />
               </div>
             ))}
           </a>
