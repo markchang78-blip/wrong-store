@@ -53,14 +53,14 @@ function Hero() {
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="absolute left-[2%] sm:left-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Previous">
               <img src="/arrow-left.png" alt="Previous" className="w-10 h-auto" />
             </button>
-            <div className={`relative w-[84%] sm:w-[78%] h-[640px] sm:h-[680px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <div className={`relative w-[84%] sm:w-[78%] h-[580px] sm:h-[620px] z-10 mt-[30px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
               <a href="#/news" className="block w-full h-full overflow-hidden">
                 {heroSlides.map((slide, i) => (<img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${i === current ? 'opacity-100' : 'opacity-0'}`} />))}
               </a>
-              <img src="/frame-tl.png" alt="" className="absolute -top-6 -left-4 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
-              <img src="/frame-tr.png" alt="" className="absolute -top-6 -right-4 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
-              <img src="/frame-bl.png" alt="" className="absolute -bottom-6 -left-4 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
-              <img src="/frame-br.png" alt="" className="absolute -bottom-6 -right-4 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
+              <img src="/frame-tl.png" alt="" className="absolute -top-2 -left-2 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
+              <img src="/frame-tr.png" alt="" className="absolute -top-2 -right-2 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
+              <img src="/frame-bl.png" alt="" className="absolute -bottom-2 -left-2 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
+              <img src="/frame-br.png" alt="" className="absolute -bottom-2 -right-2 w-[80px] sm:w-[100px] h-auto pointer-events-none z-20" />
             </div>
             <button onClick={() => setCurrent(p => (p + 1) % heroSlides.length)} className="absolute right-[2%] sm:right-[3%] top-1/2 -translate-y-1/2 z-20 hover:opacity-80 transition-opacity" aria-label="Next">
               <img src="/arrow-right.png" alt="Next" className="w-10 h-auto" />
@@ -72,25 +72,25 @@ function Hero() {
 
           {/* Desktop Layout */}
           <div className="hidden lg:flex items-center justify-between w-full">
-            <div className="w-[7%] xl:w-[8%] h-[460px] xl:h-[530px] overflow-hidden opacity-40 flex-shrink-0">
+            <div className="w-[7%] xl:w-[8%] h-[420px] xl:h-[480px] overflow-hidden opacity-40 flex-shrink-0">
               <img src={heroSlides[(current - 1 + heroSlides.length) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-right" />
             </div>
             <button onClick={() => setCurrent(p => (p - 1 + heroSlides.length) % heroSlides.length)} className="hover:opacity-60 transition-opacity mx-2 flex-shrink-0" aria-label="Previous">
               <img src="/arrow-left.png" alt="Previous" className="w-12 h-auto" />
             </button>
-            <div className={`relative w-[600px] xl:w-[720px] h-[700px] xl:h-[820px] flex-shrink-0 mt-[30px] md:mt-[40px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <div className={`relative w-[600px] xl:w-[720px] h-[640px] xl:h-[740px] flex-shrink-0 mt-[30px] md:mt-[40px] transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] delay-500 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
               <a href="#/news" className="block w-full h-full overflow-hidden">
                 {heroSlides.map((slide, i) => (<img key={i} src={slide.image} alt={slide.alt} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${i === current ? 'opacity-100' : 'opacity-0'}`} />))}
               </a>
-              <img src="/frame-tl.png" alt="" className="absolute -top-6 xl:-top-8 -left-6 xl:-left-8 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
-              <img src="/frame-tr.png" alt="" className="absolute -top-6 xl:-top-8 -right-6 xl:-right-8 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
-              <img src="/frame-bl.png" alt="" className="absolute -bottom-6 xl:-bottom-8 -left-6 xl:-left-8 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
-              <img src="/frame-br.png" alt="" className="absolute -bottom-6 xl:-bottom-8 -right-6 xl:-right-8 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
+              <img src="/frame-tl.png" alt="" className="absolute -top-3 xl:-top-4 -left-3 xl:-left-4 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
+              <img src="/frame-tr.png" alt="" className="absolute -top-3 xl:-top-4 -right-3 xl:-right-4 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
+              <img src="/frame-bl.png" alt="" className="absolute -bottom-3 xl:-bottom-4 -left-3 xl:-left-4 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
+              <img src="/frame-br.png" alt="" className="absolute -bottom-3 xl:-bottom-4 -right-3 xl:-right-4 w-[100px] xl:w-[120px] h-auto pointer-events-none z-20" />
             </div>
             <button onClick={() => setCurrent(p => (p + 1) % heroSlides.length)} className="hover:opacity-60 transition-opacity mx-2 flex-shrink-0" aria-label="Next">
               <img src="/arrow-right.png" alt="Next" className="w-12 h-auto" />
             </button>
-            <div className="w-[7%] xl:w-[8%] h-[570px] xl:h-[680px] overflow-hidden opacity-40 flex-shrink-0">
+            <div className="w-[7%] xl:w-[8%] h-[520px] xl:h-[620px] overflow-hidden opacity-40 flex-shrink-0">
               <img src={heroSlides[(current + 1) % heroSlides.length].image} alt="" className="w-full h-full object-cover object-left" />
             </div>
           </div>
