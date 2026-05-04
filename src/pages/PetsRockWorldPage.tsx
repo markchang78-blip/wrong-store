@@ -7,6 +7,11 @@ const heroSlides = [
   { image: '/hero-shelf.jpg', alt: 'Pets Rock World 3' },
 ];
 
+const topHeroSlides = [
+  { src: '/hero-yellow.jpg', alt: 'Pets Rock World Hero 1' },
+  { src: '/hero-doodles.jpg', alt: 'Pets Rock World Hero 2' },
+];
+
 const categories = [
   { title: 'APPAREL', description: 'Wear the movement. From graphic tees to statement hoodies, our apparel line brings PETS ROCK energy to your everyday style.', linkText: 'Shop Apparel', image: '/handbook-apparel.png', reverse: false },
   { title: 'COLLECTIBLES', description: 'Limited edition figures and art pieces for the serious collector. Each drop is a moment in PETS ROCK history.', linkText: 'Shop Collectibles', image: '/handbook-hero.png', reverse: true },
@@ -28,6 +33,53 @@ const blogArticles = [
   { date: 'OCT 22 2024', author: 'BY ALEX TORRES', title: 'The Art of the Drop: How We Create Our Collections', excerpt: 'An inside look at the creative process behind every PETS ROCK WORLD collection, from sketch to storefront.', image: '/hero-shelf.jpg' },
   { date: 'OCT 08 2024', author: 'BY SAMIRA OKONKWO', title: 'Community Spotlight: Collectors Around the Globe', excerpt: 'Meet the passionate collectors who make up the PETS ROCK WORLD community—from Tokyo to São Paulo.', image: '/hero-yellow.jpg' },
 ];
+
+// ====== Top Hero Banner (new full-width carousel) ======
+function TopHero() {
+  const [current, setCurrent] = useState(0);
+  useEffect(() => { const i = setInterval(() => setCurrent(p => (p + 1) % topHeroSlides.length), 5000); return () => clearInterval(i); }, []);
+  const goPrev = () => setCurrent(p => (p - 1 + topHeroSlides.length) % topHeroSlides.length);
+  const goNext = () => setCurrent(p => (p + 1) % topHeroSlides.length);
+
+  return (
+    <section className="relative w-full h-[50vh] min-h-[300px] md:h-screen md:min-h-[600px] overflow-hidden">
+      {topHeroSlides.map((slide, i) => (
+        <img
+          key={i}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        />
+      ))}
+      <button onClick={goPrev} className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Previous">
+        <img src="/arrow-left-custom.png" alt="Previous" className="w-full h-full object-contain" />
+      </button>
+      <button onClick={goNext} className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
+        <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
+      </button>
+    </section>
+  );
+}
+
+// ====== Title Section ======
+function TitleSection() {
+  return (
+    <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
+      <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
+        <img src="/pr1.png" alt="PETS ROCK" className="h-[60px] md:h-[80px] lg:h-[100px] w-auto flex-shrink-0" />
+        <h1 className="text-[10vw] md:text-[8vw] lg:text-[10vw] 2xl:text-[11vw] font-black text-black uppercase tracking-tighter leading-none">
+          WORLD
+        </h1>
+      </div>
+      <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-8 md:mt-12">
+        THE STREET IS OURS
+      </h2>
+      <p className="text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight text-center md:max-w-[85%] lg:max-w-[75%] mt-6">
+        From the pavement to the penthouse. PETS ROCK WORLD is everywhere.
+      </p>
+    </section>
+  );
+}
 
 // ====== Hero ======
 function Hero() {
@@ -352,7 +404,7 @@ function Ticker() {
 export default function PetsRockWorldPage() {
   return (
     <>
-      <Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
+      <TopHero /><TitleSection /><Hero /><Categories /><MarqueeBanner /><ProductGrid /><CTASection /><CollectionShowcase />
       <ValuesSection /><FullWidthBanner /><BlogSection /><Ticker />
     </>
   );
