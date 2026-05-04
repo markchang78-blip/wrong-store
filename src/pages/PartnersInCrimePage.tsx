@@ -187,13 +187,11 @@ const showUpSlides = [
 
 function ShowUpNowCarousel() {
   const [current, setCurrent] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isPlaying) return;
     const timer = setInterval(() => setCurrent(p => (p + 1) % showUpSlides.length), 5000);
     return () => clearInterval(timer);
-  }, [isPlaying]);
+  }, []);
 
   const goPrev = () => setCurrent(p => (p - 1 + showUpSlides.length) % showUpSlides.length);
   const goNext = () => setCurrent(p => (p + 1) % showUpSlides.length);
@@ -205,60 +203,62 @@ function ShowUpNowCarousel() {
 
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 5 images. All 9:16 material, non-center cropped to shorter height */}
-      <div className="hidden md:flex items-center justify-center gap-2 lg:gap-3 px-1 lg:px-2">
-        {/* Far left edge - very short */}
-        <div className="w-[3%] lg:w-[2%] flex-shrink-0 opacity-40 overflow-hidden rounded-lg">
-          <div className="h-[180px] lg:h-[240px] overflow-hidden">
+      {/* Desktop: 5 images — all 9:16, same top alignment, height scales with width */}
+      <div className="hidden md:flex items-start justify-center gap-2 lg:gap-3 px-2 lg:px-4">
+        {/* Far left edge */}
+        <div className="w-[5%] lg:w-[6%] flex-shrink-0 opacity-40 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Left - cropped to 60% height */}
-        <div className="w-[18%] lg:w-[16%] flex-shrink-0 opacity-70 overflow-hidden rounded-lg">
-          <div className="h-[280px] lg:h-[380px] overflow-hidden">
+        {/* Left */}
+        <div className="w-[20%] lg:w-[22%] flex-shrink-0 opacity-70 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center - full 9:16 */}
-        <div className="w-[44%] lg:w-[40%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-2xl">
+        {/* Center — full 9:16, largest */}
+        <div className="w-[30%] lg:w-[32%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right - cropped to 60% height */}
-        <div className="w-[18%] lg:w-[16%] flex-shrink-0 opacity-70 overflow-hidden rounded-lg">
-          <div className="h-[280px] lg:h-[380px] overflow-hidden">
+        {/* Right */}
+        <div className="w-[20%] lg:w-[22%] flex-shrink-0 opacity-70 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Far right edge - very short */}
-        <div className="w-[3%] lg:w-[2%] flex-shrink-0 opacity-40 overflow-hidden rounded-lg">
-          <div className="h-[180px] lg:h-[240px] overflow-hidden">
+        {/* Far right edge */}
+        <div className="w-[5%] lg:w-[6%] flex-shrink-0 opacity-40 overflow-hidden rounded-lg">
+          <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>
 
-      {/* Mobile: 3 images */}
-      <div className="md:hidden relative px-6">
-        <div className="relative flex items-center justify-center gap-2">
+      {/* Mobile: 3 images — all 9:16, top aligned */}
+      <div className="md:hidden relative px-4">
+        <div className="flex items-start justify-center gap-2">
           {/* Left edge */}
-          <div className="w-[12%] opacity-50 overflow-hidden rounded-lg">
-            <div className="h-[200px] overflow-hidden">
+          <div className="w-[10%] flex-shrink-0 opacity-50 overflow-hidden rounded-lg">
+            <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Main */}
-          <div className="w-[70%] relative z-10 overflow-hidden rounded-lg shadow-xl" style={{ aspectRatio: '9/16' }}>
-            <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
+          <div className="w-[76%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-xl">
+            <div style={{ aspectRatio: '9/16' }}>
+              <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
+            </div>
           </div>
           {/* Right edge */}
-          <div className="w-[12%] opacity-50 overflow-hidden rounded-lg">
-            <div className="h-[200px] overflow-hidden">
+          <div className="w-[10%] flex-shrink-0 opacity-50 overflow-hidden rounded-lg">
+            <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
@@ -272,17 +272,6 @@ function ShowUpNowCarousel() {
       <button onClick={goNext} className="absolute right-2 md:right-8 lg:right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 transition-transform" aria-label="Next">
         <img src="/arrow-right-custom.png" alt="Next" className="w-full h-full object-contain" />
       </button>
-
-      {/* Play/Pause */}
-      <div className="flex justify-center mt-6 gap-4">
-        <button onClick={() => setIsPlaying(!isPlaying)} className="w-10 h-10 flex items-center justify-center rounded-full border border-black/20 hover:bg-black/5 transition-colors" aria-label={isPlaying ? 'Pause' : 'Play'}>
-          {isPlaying ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
-          )}
-        </button>
-      </div>
     </section>
   );
 }
