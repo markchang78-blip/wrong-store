@@ -110,22 +110,22 @@ export default function PetsForLifePage() {
         </button>
       </section>
 
-      {/* ====== 2. TITLE SECTION — exact copy from The Unlikely Entertainment ====== */}
-      <section className="px-4 md:px-8 lg:px-16 pt-12 md:pt-16 lg:pt-20 pb-16 flex flex-col items-center text-center">
+      {/* ====== 2. TITLE SECTION — copy from The Unlikely Entertainment ====== */}
+      <section className="px-4 md:px-8 lg:px-16 pt-8 pb-12 flex flex-col items-center text-center">
         {/* Logo + Handbook — same row, flex layout */}
         <div className="flex items-center justify-center gap-4 md:gap-6 w-full">
           <img src="/pr1.png" alt="PETS ROCK" className="h-[60px] md:h-[80px] lg:h-[100px] w-auto flex-shrink-0" />
-          <h1 className="text-[15vw] md:text-[12vw] lg:text-[14vw] 2xl:text-[15vw] font-black text-black uppercase tracking-tighter leading-none">
+          <h1 className="text-[10vw] md:text-[8vw] lg:text-[10vw] 2xl:text-[11vw] font-black text-black uppercase tracking-tighter leading-none">
             HANDBOOK
           </h1>
         </div>
-        {/* Main title — IP IS THE ALPHA */}
+        {/* Main title */}
         <h2 className="text-[40px] md:text-[60px] lg:text-[80px] 2xl:text-[120px] font-black text-black uppercase tracking-tighter leading-none mt-8 md:mt-12">
-          IP IS THE ALPHA
+          A LIFETIME OF LOVE
         </h2>
         {/* Description */}
         <p className="text-base lg:text-2xl 2xl:text-4xl font-bold text-black leading-normal tracking-tight text-center md:max-w-[85%] lg:max-w-[75%] mt-6">
-          Owning a PETS ROCK piece means you hold a broad license to use the art associated with it for personal and commercial uses.
+          Celebrate the bond that lasts forever. Every moment with your pet is a story worth cherishing.
         </p>
       </section>
 
