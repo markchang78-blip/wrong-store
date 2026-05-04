@@ -119,7 +119,7 @@ function Categories() {
   }, []);
 
   return (
-    <section ref={ref} className="py-10 md:py-24 px-4 md:px-8 lg:px-16" style={{ maxWidth: '1400px', margin: '0 auto' }}>
+    <section ref={ref} className="py-10 md:py-24">
       <div className="mb-10 md:mb-24 text-center">
         <h2 className="text-[28px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[90px] font-black text-[#C63B38] leading-[1.05] tracking-tight">
           Partners In Crime—Built For the Bold
@@ -127,16 +127,23 @@ function Categories() {
       </div>
       <div className="flex flex-col gap-12 md:gap-16">
         {categories.map((cat, i) => (
-          <div key={i} className={`cat-anim flex flex-col ${cat.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-6 md:gap-12 items-center pb-12`}>
-            <div className={`cat-img w-full md:w-[55%] overflow-hidden -mx-4 md:mx-0 md:rounded-lg opacity-0 transition-all duration-[1200ms] ease-out ${cat.reverse ? 'translate-x-20 md:translate-x-12' : '-translate-x-20 md:-translate-x-12'}`}>
-              <img src={cat.image} alt={cat.title} className="w-full aspect-[5/6] object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+          <section key={i} className="py-12 md:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Image */}
+              <div className={`cat-img relative w-full h-[372px] lg:h-[694px] transition-all duration-[1200ms] ease-out opacity-0 ${cat.reverse ? 'lg:order-2 translate-x-20 md:translate-x-12' : 'lg:order-1 -translate-x-20 md:-translate-x-12'}`}>
+                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover" />
+              </div>
+              {/* Text */}
+              <div className={`cat-text relative w-full flex flex-col justify-center p-8 lg:p-16 xl:p-20 gap-2 md:gap-4 xl:gap-7 transition-all duration-[1200ms] ease-out delay-200 opacity-0 ${cat.reverse ? 'lg:order-1 -translate-x-20 md:-translate-x-12' : 'lg:order-2 translate-x-20 md:translate-x-12'}`}>
+                <h3 className="text-2xl md:text-3xl xl:text-5xl font-black text-black uppercase tracking-tighter leading-none">
+                  {cat.title}
+                </h3>
+                <p className="text-sm md:text-lg xl:text-2xl font-normal text-muted-foreground leading-tight tracking-tight">
+                  {cat.description}
+                </p>
+              </div>
             </div>
-            <div className={`cat-text w-full md:w-[45%] flex flex-col items-center justify-center opacity-0 transition-all duration-[1200ms] ease-out ${cat.reverse ? '-translate-x-20 md:-translate-x-12' : 'translate-x-20 md:translate-x-12'}`}>
-              <h3 className="text-xl md:text-2xl font-bold mb-3 text-center">{cat.title}</h3>
-              <p className="text-sm text-brand-text-secondary leading-relaxed max-w-[320px] mb-4 text-center">{cat.description}</p>
-              <a href="#/news" className="inline-flex items-center gap-1 text-xs uppercase tracking-[0.05em] font-medium group/link relative">{cat.linkText} <ArrowRight size={14} /></a>
-            </div>
-          </div>
+          </section>
         ))}
       </div>
     </section>
