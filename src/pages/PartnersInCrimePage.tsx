@@ -187,11 +187,7 @@ const showUpSlides = [
 
 function ShowUpNowCarousel() {
   const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => setCurrent(p => (p + 1) % showUpSlides.length), 5000);
-    return () => clearInterval(timer);
-  }, []);
+  // 移除自動輪播 - 只用箭頭手動切換
 
   const goPrev = () => setCurrent(p => (p - 1 + showUpSlides.length) % showUpSlides.length);
   const goNext = () => setCurrent(p => (p + 1) % showUpSlides.length);
@@ -201,61 +197,62 @@ function ShowUpNowCarousel() {
   const rightIndex = (current + 1) % showUpSlides.length;
   const farRightIndex = (current + 2) % showUpSlides.length;
 
+  // 左/右圖片高度計算（用於最外側邊緣固定高度）
+  const sideHeight = 'calc(24vw * 16 / 9)';
+
   return (
     <section className="relative w-full overflow-hidden py-8 md:py-12">
-      {/* Desktop: 5 images, all top-aligned (items-start).
-         Center is largest (32%). Side images ~78% of center width → ~78% height (same 9:16 ratio).
-         Far edges: same height as sides, but only ~70px width visible (overflow crop). */}
-      <div className="hidden md:flex items-start justify-center gap-1 lg:gap-2">
+      {/* Desktop: 5 images, all 9:16, top-aligned, uniform gap */}
+      <div className="hidden md:flex items-start justify-center gap-3">
         {/* Far left edge — ~70px wide, same height as side images */}
-        <div className="w-[55px] lg:w-[70px] flex-shrink-0 opacity-60 overflow-hidden rounded-lg" style={{ height: 'calc(24vw * 16 / 9)' }}>
+        <div className="w-[55px] lg:w-[70px] flex-shrink-0 opacity-60 overflow-hidden rounded-xl" style={{ height: sideHeight }}>
           <img src={showUpSlides[farLeftIndex].src} alt="" className="w-full h-full object-cover" />
         </div>
 
-        {/* Left — ~78% width of center, so height is also ~78% (same 9:16 ratio) */}
-        <div className="w-[24%] lg:w-[25%] flex-shrink-0 opacity-85 overflow-hidden rounded-lg">
+        {/* Left — 24% width, 9/16 ratio */}
+        <div className="w-[24%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[leftIndex].src} alt={showUpSlides[leftIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Center — full 9:16, largest */}
-        <div className="w-[30%] lg:w-[32%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-2xl">
+        {/* Center — 32% width, 9/16 ratio, largest */}
+        <div className="w-[32%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-2xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
-        {/* Right — ~78% width of center */}
-        <div className="w-[24%] lg:w-[25%] flex-shrink-0 opacity-85 overflow-hidden rounded-lg">
+        {/* Right — 24% width, 9/16 ratio */}
+        <div className="w-[24%] flex-shrink-0 opacity-85 overflow-hidden rounded-xl">
           <div style={{ aspectRatio: '9/16' }}>
             <img src={showUpSlides[rightIndex].src} alt={showUpSlides[rightIndex].alt} className="w-full h-full object-cover" />
           </div>
         </div>
 
         {/* Far right edge — ~70px wide, same height as side images */}
-        <div className="w-[55px] lg:w-[70px] flex-shrink-0 opacity-60 overflow-hidden rounded-lg" style={{ height: 'calc(24vw * 16 / 9)' }}>
+        <div className="w-[55px] lg:w-[70px] flex-shrink-0 opacity-60 overflow-hidden rounded-xl" style={{ height: sideHeight }}>
           <img src={showUpSlides[farRightIndex].src} alt="" className="w-full h-full object-cover" />
         </div>
       </div>
 
-      {/* Mobile: 3 images, all 9:16 */}
+      {/* Mobile: 3 images, all 9/16, uniform gap */}
       <div className="md:hidden relative px-4">
-        <div className="flex items-start justify-center gap-2">
+        <div className="flex items-start justify-center gap-3">
           {/* Left edge */}
-          <div className="w-[14%] flex-shrink-0 opacity-60 overflow-hidden rounded-lg">
+          <div className="w-[14%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[leftIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Main */}
-          <div className="w-[68%] flex-shrink-0 relative z-10 overflow-hidden rounded-lg shadow-xl">
+          <div className="w-[68%] flex-shrink-0 relative z-10 overflow-hidden rounded-xl shadow-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[current].src} alt={showUpSlides[current].alt} className="w-full h-full object-cover" />
             </div>
           </div>
           {/* Right edge */}
-          <div className="w-[14%] flex-shrink-0 opacity-60 overflow-hidden rounded-lg">
+          <div className="w-[14%] flex-shrink-0 opacity-60 overflow-hidden rounded-xl">
             <div style={{ aspectRatio: '9/16' }}>
               <img src={showUpSlides[rightIndex].src} alt="" className="w-full h-full object-cover" />
             </div>
