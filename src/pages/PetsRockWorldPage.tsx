@@ -353,11 +353,7 @@ function BlogSection() {
       <div className="grid md:grid-cols-3 gap-8">
         {blogArticles.map((article, i) => (
           <article key={i} className="blog-card opacity-0 group cursor-pointer">
-            <div className="aspect-[5/6] overflow-hidden -mx-4 md:mx-0 md:rounded-lg mb-4"><img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div>
-            <div className="flex items-center gap-2 text-[11px] uppercase tracking-wider text-brand-text-muted mb-2"><span className="bg-black text-white px-2 py-0.5">{article.date}</span><span>{article.author}</span></div>
-            <h3 className="text-lg font-semibold leading-snug mb-2 group-hover:text-brand-purple transition-colors">{article.title}</h3>
-            <p className="text-sm text-brand-text-secondary line-clamp-2 mb-4">{article.excerpt}</p>
-            <span className="inline-flex items-center gap-1 text-xs uppercase tracking-[0.05em] font-medium relative">Read Story <ArrowRight size={14} /></span>
+            <div className="aspect-[5/6] overflow-hidden -mx-4 md:mx-0 md:rounded-lg"><img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div>
           </article>
         ))}
       </div>
